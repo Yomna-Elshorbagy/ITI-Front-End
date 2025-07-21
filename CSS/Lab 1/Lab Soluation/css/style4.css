@@ -1,0 +1,72 @@
+.box {
+  width: 350px;
+  margin: 40px auto;
+  background-color: rgb(250, 210, 210);
+  padding: 50px;
+}
+
+/* **** social style **** */
+.social-login {
+  text-align: center;
+}
+.social-login .facebook {
+  padding: 5px 10px;
+  margin-right: 20px;
+  background-color: #3b5998;
+  color: #fff;
+  border: 1px solid #3b5998;
+}
+.social-login .twitter {
+  padding: 5px 10px;
+  background-color: #1da1f2;
+  color: #fff;
+  border: 1px solid #1da1f2;
+}
+
+/* **** or style **** */
+.or {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: lightgray;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 15px auto;
+}
+
+/* **** form style **** */
+form input[type="text"],
+form input[type="password"] {
+  width: 95%;
+  padding: 10px 5px;
+  margin: 5px auto;
+}
+
+.options > a {
+  float: right;
+  text-decoration: none;
+  color: #000;
+}
+.clr {
+  clear: both;
+}
+
+button.login {
+  /* display: block; */
+  width: 100%;
+  margin: 15px auto;
+  padding: 5px 0;
+  background-color: #3b5998;
+  color: #fff;
+  border: 1px solid #3b5998;
+  cursor: pointer;
+}
+
+form > p {
+  text-align: center;
+}
+
+form > p > a {
+  color: #20a6f9;
+}

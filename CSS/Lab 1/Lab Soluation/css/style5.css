@@ -1,0 +1,84 @@
+/* **** global style **** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(../images/bg2.png);
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+.clr {
+  clear: both;
+}
+
+.dotted {
+  border-top: 3px dotted rgb(61, 17, 17);
+}
+
+.padding {
+  padding: 20px 0;
+}
+
+/* **** header style **** */
+.heading {
+  line-height: 2;
+}
+.heading .title {
+  text-align: center;
+  color: rgb(177, 177, 65);
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgb(93, 70, 70);
+}
+
+.heading .parag1,
+.heading .parag2 {
+  font-size: 14px;
+  text-align: center;
+  color: rgb(177, 177, 65);
+}
+.heading .parag2 a {
+  text-decoration: none;
+  font-style: italic;
+  color: brown;
+}
+
+/* **** gallery style **** */
+.bird-card {
+  float: left;
+  /* display: inline-block; whit-e spacing */
+  padding: 20px;
+  width: 33%;
+  text-align: center;
+}
+
+.bird-card img {
+  width: 100%;
+  height: 300px;
+}
+
+.gallary .bird-card h3 {
+  color: brown;
+}
+.gallary .bird-card p {
+  color: rgb(177, 177, 65);
+}
+
+/* **** footer style **** */
+.footer {
+  text-align: center;
+  line-height: 2;
+  font-style: italic;
+}
+.footer .closing {
+  color: rgb(177, 177, 65);
+  font-size: 25px;
+}
+.footer .end {
+  color: brown;
+  font-weight: bold;
+}

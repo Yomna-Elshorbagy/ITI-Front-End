@@ -1,0 +1,48 @@
+/* **** global style **** */
+
+body {
+  background-color: rgb(250, 251, 251);
+  margin: 10px;
+}
+.padding {
+  padding: 20px 0;
+}
+
+.heading {
+  text-transform: capitalize;
+  text-decoration: underline;
+  color: rgb(161, 171, 92);
+  background-color: lightgray;
+}
+span {
+  font-weight: bolder;
+}
+
+/* **** recipi style **** */
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(161, 171, 92);
+  background-color: lightgray;
+}
+.recipe img {
+  width: 200px;
+  height: 200px;
+  margin: 10px 0;
+}
+
+/* **** links style **** */
+.links a {
+  color: rgb(122, 194, 157);
+}
+/* **** comment style **** */
+.all-comments .comment {
+  background-color: #ffffcc;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 80%;
+  margin: 15px auto;
+}
+.footer img {
+  width: 150px;
+}

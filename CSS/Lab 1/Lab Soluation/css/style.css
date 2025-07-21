@@ -1,0 +1,114 @@
+/* **** global style **** */
+@import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: url(../images/bg.png);
+}
+.padding {
+  padding: 15px 0;
+}
+/* *** Main Section style*** */
+#home {
+  width: 60%;
+  border: 20px solid gray;
+  border-style: groove;
+  margin: auto;
+  margin-top: 50px;
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+/*  *** start first part style *** */
+.firstPart,
+.links,
+.content {
+  width: 80%;
+  padding: 20px;
+  margin: 20px auto;
+  border: 5px solid gray;
+  background-color: #f6b1a5;
+}
+
+.firstPart {
+  height: 150px;
+  line-height: 100px;
+  position: relative;
+  text-align: center;
+  align-items: center;
+}
+.firstPart h1 {
+  font-family: "Mea Culpa", cursive;
+  display: inline-block;
+  letter-spacing: 7;
+}
+.firstPart > img {
+  width: 70px;
+  display: inline-block;
+}
+.firstPart .imgLeft {
+  position: absolute;
+  left: 150px;
+  /* float: left; */
+}
+.firstPart .imgRight {
+  position: absolute;
+  right: 150px;
+  /* float: right; */
+}
+/* .clr{
+    clear: both;
+} */
+
+/*  *** start links style *** */
+.links {
+  text-align: center;
+  color: #ff0000;
+}
+.links > a {
+  color: #ff0000;
+}
+
+/*  *** start content style *** */
+.content-size {
+  width: 70%;
+  margin: auto;
+}
+.content h2 {
+  text-decoration: underline;
+}
+
+.content a {
+  color: #ff0000;
+  font-style: italic;
+}
+
+.content p span {
+  font-weight: bolder;
+}
+
+.content p .info {
+  font-style: italic;
+  color: rgb(81, 72, 72);
+}
+.content .link {
+  position: relative;
+}
+
+.content .link a {
+  position: absolute;
+  left: 20px;
+}
+
+/*  *** start footer style *** */
+.footer {
+  background-color: #f6b1a5;
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+  width: 80%;
+}

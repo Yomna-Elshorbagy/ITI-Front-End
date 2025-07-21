@@ -1,0 +1,39 @@
+.card {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  /* overflow: hidden; */
+}
+.card .image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 20px;
+}
+.submit {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+}
+.submit button {
+  float: right;
+  background-color: rgb(176, 176, 212);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.submit button:hover {
+  background-color: rgb(164, 164, 240);
+}
+.content {
+  margin-right: 20px;
+  margin-left: 60px;
+  width: 60%;
+  padding: 15px;
+}
+
+.clr {
+  clear: both;
+}

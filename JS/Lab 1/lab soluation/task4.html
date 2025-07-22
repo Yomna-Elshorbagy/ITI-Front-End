@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <script>
+      //Q1:
+
+      // var num = prompt("enter the number :");
+      // var initialRadix = parseInt(prompt("enter the initial radix :"));
+      // var targetRadix = parseInt(prompt("enter the target radix :"));
+      // if (
+      //   isNaN(initialRadix) ||
+      //   isNaN(targetRadix) ||
+      //   initialRadix < 2 ||
+      //   initialRadix > 36
+      // ) {
+      //   alert("enter valid number radix between 2: 36 ..");
+      // } else if (isNaN(num)) {
+      //   alert("enter valid number");
+      // } else {
+      //   var value = parseInt(num, initialRadix);
+      //   let result = value.toString(targetRadix);
+      //   console.log(result);
+
+      //   if (isNaN(value)) {
+      //     alert("no number for the given initial radix.");
+      //   } else {
+      //     document.writeln(`<h1>${result}</h1>`);
+      //   }
+      // }
+
+      // Q2:
+      // toLocaleString: toLocaleString(locales, options) // affect (Thousands separators - Decimal separators  - digital grouping)
+
+      var num = Number(prompt("enter the number:"));
+      if (isNaN(num)) {
+        alert("Please enter a correct number.");
+      } else {
+        console.log(num.toLocaleString());
+        console.log(num.toLocaleString("en-US"));
+        console.log(num.toLocaleString("de-DE"));
+        console.log(num.toLocaleString("fr-FR"));
+        console.log(num.toLocaleString("ar-EG"));
+        document.writeln(
+          `<h3 style="text-align:center"> ${num.toLocaleString("ar-EG")}</h3>`
+        );
+      }
+
+      // ==================================================
+
+      // Q3:
+      var arr = [6, 9, 20.45, 44, 456.12345];
+      //sol1
+      var arr2 = [];
+      for (let i = 0; i < arr.length; i++) {
+        arr2.push(arr[i].toPrecision(9));
+      }
+      console.log(arr2);
+      // sol2
+      for (let i = 0; i < arr.length; i++) {
+        arr2.push(arr[i].toFixed(9));
+      }
+      console.log(arr2);
+      // ==================================================
+
+      //Q4:
+      var t1 = new Number(10);
+      var t2 = new Number(10);
+      console.log(t1 == t2); // false because of they have different state with different identitiies as they are different objects in the memory
+      console.log([1, 2, 3] == [1, 2, 3]); // false as the previous they are diffrent array objects
+    </script>
+  </body>
+</html>

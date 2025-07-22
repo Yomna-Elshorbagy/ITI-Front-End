@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <script>
+      var arr = [];
+      for (var i = 1; i < 4; i++) {
+        var nums = prompt("enter three values you want to calculate: ");
+        if (isNaN(nums) === true || nums === "") {
+          alert("Enter Numerical Value");
+          i--; // to repete this itiration
+          continue;
+        }
+        arr.push(Number(nums));
+      }
+
+      alert(`${arr}`);
+
+      var sum = Number(arr[0]) + Number(arr[1]) + Number(arr[2]);
+      var multiply = Number(arr[0]) * Number(arr[1]) * Number(arr[2]);
+      var deviation;
+      if (Number(arr[2] === 0) || Number(arr[1] === 0)) {
+        diviation = 0;
+      } else {
+        diviation = Number(arr[0]) / Number(arr[1]) / Number(arr[2]);
+      }
+      document.writeln(`<h2 align="center">sum of three values ${sum}</h2>
+      <h2 align="center">multiplication of the three values ${multiply}</h2>
+      <h2 align="center">diviation of the three values ${diviation}</h2>`);
+    </script>
+  </body>
+</html>

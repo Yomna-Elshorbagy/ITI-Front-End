@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <h2 id="name"></h2>
+    <img src="./img1.jpg" alt="image test" width="200" id="image" />
+    <script>
+      var name = prompt("enter Image Name: ");
+      var color = prompt("Enter Image Color: ");
+      var imgSource = prompt("Enter image file name ");
+
+      var nameEle = document.getElementById("name");
+      nameEle.innerHTML = name || "yomna";
+      nameEle.style.color = color || "black";
+
+      var imageEle = document.getElementById("image");
+      imageEle.src = imgSource || "img1.jpg";
+      console.log(imageEle);
+      imageEle.style.border = `2px solid ${color}`;
+    </script>
+  </body>
+</html>

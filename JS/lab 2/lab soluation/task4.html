@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    
+    <!-- <script>
+      var name = prompt("Enter your name:");
+      if (!name || !isNaN(name)) {
+        alert("Please enter a valid name.");
+      } else {
+        alert("Hello " + name + "!");
+      }
+
+      var mobile = prompt("Enter your mobile number:");
+
+      function isValidMobileFormat(mobile) {
+        let parts = mobile.split("-");
+
+        // Two parts
+        if (parts.length !== 2) {
+          return false;
+        }
+
+        let firstEle = parts[0];
+        let secondEle = parts[1];
+
+        let validnumbers = ["010", "011", "012", "015"];
+
+        if (
+          validnumbers.includes(firstEle) &&
+          secondEle.length === 7 &&
+          !isNaN(firstEle + secondEle)
+        ) {
+          return true;
+        }
+
+        return false;
+      }
+
+      // Format validation
+      if (isValidMobileFormat(mobile)) {
+        alert("Valid mobile number: " + mobile);
+      } else {
+        alert(" Please enter a valid mobile number format.");
+      }
+    </script> -->
+    
+    <script>
+      let name;
+      do {
+        name = prompt("Enter Your Name:");
+        if (!name || !isNaN(name)) {
+          alert("Enter your name as a string.");
+        }
+      } while (!name || !isNaN(name));
+
+      alert("Hello " + name);
+
+      let phone;
+      let validateFirstPart = ["010", "011", "012", "015"];
+      let isValid = false;
+
+      do {
+        phone = prompt("Enter your phone");
+
+        if (phone && phone.includes("-")) {
+          let numbers = phone.split("-");
+
+          if (numbers.length === 2) {
+            let firstPart = numbers[0];
+            let secondPart = numbers[1];
+
+            if (
+              firstPart.length === 3 &&
+              secondPart.length === 7 &&
+              validateFirstPart.includes(firstPart) &&
+              !isNaN(firstPart) &&
+              !isNaN(secondPart)
+            ) {
+              isValid = true;
+            } else {
+              alert("Invalid number ");
+            }
+          } else {
+            alert("invalid format");
+          }
+        } else {
+          alert("please include '-' to separate prefix and number.");
+        }
+      } while (!isValid);
+
+      alert("your phone number is valid: " + phone);
+    </script>
+  </body>
+</html>

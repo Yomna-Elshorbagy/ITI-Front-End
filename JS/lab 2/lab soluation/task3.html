@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <h2 style="text-align: center" id="date"></h2>
+    <h2 style="text-align: center" id="dayDate"></h2>
+    <h2 style="text-align: center" id="day"></h2>
+    <script>
+      // get current time
+      var currentDate = new Date();
+      var day = currentDate.getDay(); // return numbers from 0 to 6
+      var dayDate = currentDate.toLocaleDateString(); // date of day in 17/10/1222
+      var dayDate2 = currentDate.toLocaleDateString("ar-EG"); // date of day in arabic
+      var dayDate3 = currentDate.toLocaleDateString("ko-KR");
+
+      console.log(currentDate);
+      console.log(day);
+
+      document.getElementById("date").innerHTML = currentDate;
+      document.getElementById("dayDate").innerHTML = dayDate3;
+      switch (day) {
+        case 0:
+          document.getElementById("day").innerHTML = "sunday";
+          break;
+        case 1:
+          document.getElementById("day").innerHTML = "monday";
+          break;
+        case 2:
+          document.getElementById("day").innerHTML = "tuesday";
+          break;
+        case 3:
+          document.getElementById("day").innerHTML = "wednesday";
+          break;
+        case 4:
+          document.getElementById("day").innerHTML = "thursday";
+          break;
+        case 5:
+          document.getElementById("day").innerHTML = "friday";
+          break;
+        case 6:
+          document.getElementById("day").innerHTML = "saterday";
+          break;
+
+        default:
+          break;
+      }
+    </script>
+  </body>
+</html>

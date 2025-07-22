@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 7</title>
+  </head>
+  <body>
+    <script>
+      var arr = ["ahmed", "ali", "moustafa", "ibraheem", "alaa", "hamada"];
+      var names = [];
+
+      var firstNameIndex = Math.floor(Math.random() * arr.length);
+      var firstName = arr[firstNameIndex];
+      console.log(firstNameIndex);
+
+      var secondNameIndex = Math.floor(Math.random() * arr.length);
+      let secondName = arr[secondNameIndex];
+
+      if (firstNameIndex !== secondNameIndex) {
+        names.push(firstName, secondName);
+      } else {
+        secondNameIndex = Math.floor(Math.random() * arr.length);
+        names.push(firstName, secondName);
+      }
+
+      var printNames = names.join(" -- ");
+      console.log(names);
+      console.log(printNames);
+      document.writeln(printNames);
+    </script>
+  </body>
+</html>

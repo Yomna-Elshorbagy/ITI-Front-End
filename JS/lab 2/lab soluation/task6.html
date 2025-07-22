@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6</title>
+  </head>
+  <body>
+    <script>
+      //first question
+      var str = "yomna mohamed";
+
+      const output = str.charAt(0).toUpperCase() + str.slice(1);
+      var secName = str
+        .split(" ")
+        .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+        .join(" ");
+      console.log(secName);
+
+      // second Question
+      let repeat =true;
+      function questions() {
+          var sizeArr = Number(prompt("Enter Size Of Array"));
+          while (sizeArr == "" || isNaN(sizeArr)) {
+            alert("Enter valid Size for array");
+            sizeArr = Number(prompt("Enter Size Of Array"));
+          }
+
+        //array with same order
+        let arr = [];
+        for (let i = 0; i < sizeArr; i++) {
+          let value = prompt("Enter The Number..");
+          while (value === null || value === "" || isNaN(Number(value))) {
+            alert("Enter valid Number");
+            value = prompt("Enter The Number..");
+          }
+          arr.push(Number(value));
+        }
+        console.log(arr);
+
+        // prompt
+        while (repeat) {
+        let choice = prompt("Enter a choice:from a to h");
+        switch (choice) {
+          case "a":
+            console.log("Original array:", arr);
+            break;
+
+          case "b":
+            //array with ascending
+            let arr2 = arr.sort((a, b) => a - b);
+            console.log("ascending :" + arr2);
+            break;
+
+          case "c":
+            //array with descending
+            let arr3 = arr.sort((a, b) => b - a);
+            console.log("descending : " + arr3);
+            break;
+
+          case "d":
+            //array reversed
+            let arr4 = arr.reverse();
+            console.log("reversed array:" + arr4);
+            break;
+
+          case "e":
+            //even numbers
+            let evens = arr.filter((num) => num % 2 === 0);
+            if (evens.length) {
+              document.write("Even Numbers: " + evens.join(", "));
+            } else {
+              alert("No even numbers found.");
+            }
+            break;
+
+          case "f":
+            //divided
+            let divisor = Number(prompt("Enter number to divide by:"));
+            if (isNaN(divisor) || divisor === 0) {
+              alert("invalid divisor.");
+            } else {
+              let divisible = arr.filter((num) => num % divisor === 0);
+              if (divisible.length) {
+                alert(`numbers divisible by ${divisor} are ${divisible} `);
+              } else {
+                alert("no numbers divisible by " + divisor);
+              }
+            }
+            break;
+
+          case "g":
+            //30% discount
+            let arr5 = arr.map((num) => num * 0.3);
+            console.log("30% Discount" + arr5);
+            break;
+
+          case "h":
+            //concat with ***
+            let arr6 = arr.join(" *** ");
+            console.log("concat " + arr6);
+            break;
+
+          default:
+            alert("Invalid choice.");
+        }
+  
+
+        repeat = confirm("Do you want to repeat the program?");
+      }
+            }
+      questions();
+    </script>
+  </body>
+</html>

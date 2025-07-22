@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+  </head>
+  <body>
+    <table border="2" cellpadding="10">
+      <thead>
+        <tr>
+          <th>ST1</th>
+          <th>ST2</th>
+          <th>ST3</th>
+        </tr>
+      </thead>
+      <tbody id="gradesTable"></tbody>
+    </table>
+    <script>
+      let arr = [
+        [100, 200, 300],
+        [10, 20, 30],
+      ];
+
+      let tableData = document.getElementById("gradesTable");
+      for (let i = 0; i < arr.length; i++) {
+        let element = `<tr>`;
+        let sum = 0;
+        for (let grade = 0; grade < arr[i].length; grade++) {
+          element += `<td>${arr[i][grade]}</td>`;
+          sum += arr[i][grade];
+        }
+        element += `<td>${sum}</td>`;
+        element += `</tr>`;
+        tableData.innerHTML += element;
+      }
+
+      // if i want sum in another row
+
+      //   let ele = `<tr>`;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     let sum = 0;
+      //     for (let grade = 0; grade < arr[i].length; grade++) {
+      //       sum += arr[i][grade];
+      //     }
+      //     ele += `<td>${sum}</td>`;
+      //   }
+      //   ele += `</tr>`;
+      //   tableData.innerHTML += ele;
+    </script>
+  </body>
+</html>

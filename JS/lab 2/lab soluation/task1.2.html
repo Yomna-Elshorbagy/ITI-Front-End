@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1.2</title>
+  </head>
+  <body align="center">
+    <h2>Table Values</h2>
+    <table
+      style="
+        border: 1px solid red;
+        text-align: center;
+        padding: 5px;
+        margin: 0 auto; 
+      "
+      id="tableData"
+    >
+      <tbody>
+        <tr>
+          <th>values</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Repeated Values:</h2>
+    <h2 id="repMsg"></h2>
+    <h2 id="rowNum"></h2>
+
+    <script>
+        
+      let table = document.getElementById("tableData");
+      console.log(table);
+
+      let rowNum = document.getElementById("rowNum");
+      let arr = [];
+      var repeatedMessage = "";
+
+      //enter vales in table
+      for (let i = 0; i < 5; i++) {
+        let value;
+        while (true) {
+          value = prompt(`Enter numeric value ${i + 1}:`);
+          if (value === null || value.trim() === "" || isNaN(value)) {
+            alert(" Please enter a valid number.");
+          } else {
+            break;
+          }
+        }
+
+        arr.push(value);
+        let row = document.createElement("tr");
+        row.innerHTML = `<td>${value}</td>`;
+        table.appendChild(row);
+      }
+
+      //check repeated
+      for (let i = 0; i < arr.length; i++) {
+        for (let val = i + 1; val < arr.length; val++) {
+          if (arr[i] === arr[val]) {
+            repeatedMessage += `repetead row number is ${arr[i]} <br> row is ${
+              i + 1
+            } and repeted at ${val + 1}<br><br>`;
+          }
+        }
+      }
+      if (repeatedMessage === "") {
+        repeatedMessage = "No repeated values.";
+      }
+
+      document.body.innerHTML += `<h2>${repeatedMessage}</h2>`;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 60px;
+      }
+      .welcome {
+        margin: 30px 0;
+      }
+      .welcome span {
+        color: rgb(221, 51, 51);
+      }
+    </style>
+  </head>
+  <body>
+    <img id="genderImg" class="image" src="" alt="gender image" width="200" />
+    <div class="welcome">Welcome <span id="userName"></span>!</div>
+
+    <script>
+      //if using local storage
+      // let gender = JSON.parse(localStorage.getItem("Gender"));
+      // let name = JSON.parse(localStorage.getItem("name"));
+
+      //using cookie
+      function getCookie(key) {
+        let cookies = document.cookie.split("; ");
+        for (let ele of cookies) {
+          const [k, v] = ele.split("=");
+          if (k === key) return decodeURIComponent(v);
+        }
+        return "";
+      }
+      let name = getCookie("name");
+      let gender = getCookie("Gender");
+
+      document.getElementById("userName").innerText = name;
+      let image = document.getElementById("genderImg");
+
+      if (gender === "male") {
+        image.src = "./images/male.svg";
+      } else if (gender === "female") {
+        image.src = "./images/female.svg";
+        console.log(image.src);
+      } else {
+        image.src = "";
+      }
+    </script>
+  </body>
+</html>

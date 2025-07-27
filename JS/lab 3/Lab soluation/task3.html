@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: antiquewhite;
+      }
+      div {
+        padding: 10px;
+        margin: 20px auto;
+        text-align: center;
+      }
+      #mainwrapper {
+        width: 800px;
+        margin: 60px auto;
+        border: 2px dashed brown;
+        border-radius: 3px;
+      }
+      #mainwrapper > div {
+        width: 600px;
+      }
+      img {
+        width: 400px;
+        height: 400px;
+        margin: 10px;
+        border: 2px solid yellow;
+      }
+      button {
+        width: 100px;
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        outline: none;
+        font-weight: bold;
+      }
+
+      #controlswrapper > button {
+        padding: 12px;
+        color: #fff;
+      }
+      #controlswrapper > button.prev:hover,
+      #controlswrapper > button.next:hover {
+        background-color: rgb(96, 96, 53);
+      }
+      #controlswrapper > button.prev,
+      #controlswrapper > button.next {
+        background-color: rgb(185, 185, 110);
+        border: 1px solid rgb(96, 96, 53);
+        border-radius: 4px;
+      }
+      #controlswrapper > button.start {
+        background-color: green;
+        border: 1px solid rgb(1, 72, 1);
+        border-radius: 4px;
+      }
+      #controlswrapper > button.start:hover {
+        background-color: rgb(1, 72, 1);
+      }
+      #controlswrapper > button.stop {
+        background-color: red;
+        border: 1px solid rgb(117, 9, 9);
+        border-radius: 4px;
+      }
+      #controlswrapper > button.stop:hover {
+        background-color: rgb(117, 9, 9);
+      }
+      #controlswrapper > button.start:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainwrapper">
+      <div id="imagewrapper">
+        <img src="images/img3.jpg" id="myimg" />
+      </div>
+      <div id="controlswrapper">
+        <button onclick="prev();" class="prev">
+          <i class="fa-solid fa-backward-fast"></i> Prev
+        </button>
+
+        <button onclick="startshow();" class="start">
+          <i class="fa-solid fa-play"></i> Start
+        </button>
+
+        <button onclick="stopshow();" class="stop">
+          <i class="fa-solid fa-stop"></i> Stop
+        </button>
+
+        <button onclick="next();" class="next">
+          <i class="fa-solid fa-forward-fast"></i> Next
+        </button>
+      </div>
+    </div>
+    <script>
+      var images = [
+        "./images/img1.jpg",
+        "./images/img2.jpg",
+        "./images/img3.jpg",
+        "./images/img4.jpg",
+        "./images/img5.jpg",
+        "./images/img6.jpg",
+        "./images/img7.jpg",
+        "./images/img8.jpg",
+        "./images/img9.jpg",
+        "./images/img10.jpg",
+      ];
+      var i = 0;
+      var time = null;
+
+      function startshow() {
+        if (time !== null) {
+          clearInterval(time);
+        }
+        time = setInterval(prev, 2000);
+        document.querySelector(".start").disabled = true;
+      }
+
+      function prev() {
+        i--;
+        if (i < 0) i = images.length - 1;
+        myimg.src = images[i];
+      }
+      function next() {
+        i++;
+        if (i >= images.length) i = 0;
+        myimg.src = images[i];
+      }
+      function stopshow() {
+        clearInterval(time);
+        time = null;
+        document.querySelector(".start").disabled = false;
+      }
+    </script>
+  </body>
+</html>

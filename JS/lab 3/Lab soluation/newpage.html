@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="message"></div>
+
+    <script>
+      function showMessage() {
+        let message = document.getElementById("message");
+
+        let index = 0;
+        const fullMessage = "This is a CST Course Tasks At ITI Tanta Branch";
+        const messageContent = setInterval(() => {
+          if (fullMessage.length > index) {
+            message.innerHTML += fullMessage.charAt(index);
+            index++;
+          } else {
+            clearInterval(messageContent);
+            window.close();
+          }
+        }, 500);
+      }
+      showMessage();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+    <style>
+      body {
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let images = [
+        "./images/img1.jpg",
+        "./images/img2.jpg",
+        "./images/img3.jpg",
+        "./images/img4.jpg",
+        "./images/img5.jpg",
+        "./images/img6.jpg",
+        "./images/img7.jpg",
+        "./images/img8.jpg",
+        "./images/img9.jpg",
+        "./images/img10.jpg",
+      ];
+
+      let colors = [
+        "red",
+        "green",
+        "orange",
+        "blue",
+        "cyan",
+        "magenta",
+        "brown",
+        "gray",
+        "yellow",
+        "black",
+      ];
+
+      let counter = 10;
+
+      // to change image
+      //   let change = setInterval(() => {
+      //     document.body.style.backgroundImage = `url('${images[counter]}')`;
+      //     if (counter === 0) {
+      //       clearInterval(change);
+      //       window.close();
+      //     }
+
+      //to change colors
+      let change = setInterval(() => {
+        document.body.style.backgroundColor = colors[counter];
+        if (counter === 0) {
+          clearInterval(change);
+          window.close();
+        }
+        counter--;
+      }, 1000);
+    </script>
+  </body>
+</html>

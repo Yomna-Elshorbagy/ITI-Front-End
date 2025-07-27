@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 60px;
+      }
+      .welcome {
+        margin: 30px auto;
+      }
+      .welcomeName {
+        color: rgb(221, 51, 51);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var color = location.href
+        .substring(location.href.indexOf("?") + 1)
+        .split("&")[3]
+        .split("=")[1];
+      var gender = location.href
+        .substring(location.href.indexOf("?") + 1)
+        .split("&")[2]
+        .split("=")[1];
+      var username = location.href
+        .substring(location.href.indexOf("?") + 1)
+        .split("&")[0]
+        .split("=")[1];
+
+      if (gender == "female") {
+        document.write(
+          '<img src="./images/female.svg" width="150" height="150" class="welcome"/>'
+        );
+      } else {
+        document.write(
+          '<img src="./images/male.svg" width="150" height="150" class="welcome"/>'
+        );
+      }
+      document.write(
+        'Welcome <span class="welcomeName" style="color:' + color + ';">' + username + "</span>"
+      );
+    </script>
+  </body>
+</html>

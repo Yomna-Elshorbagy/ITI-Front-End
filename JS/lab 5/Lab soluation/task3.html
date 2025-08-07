@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <style>
+        body{
+            background-color: rgb(226, 217, 204);
+            padding: 30px;
+        }
+        table {
+        width: 80%;
+        margin: 30px auto;
+        padding: 25px;
+        border-spacing: 0;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ccc;
+    }
+        td,th {
+        padding: 10px 5px;
+        background-color: #fafafa;
+        border-right: 1px solid #ccc;
+    }
+      th:last-child,
+      td:last-child {
+        border-right: none;
+    }
+
+    p{
+        text-align: center;
+        width: 50%;
+        background-color: #d5cdcd;
+        padding: 10px;
+        margin: auto;
+    }
+    </style>
+  </head>
+  <body>
+
+<p id="styleText">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deserunt minus omnis laudantium sit eaque, neque harum incidunt ratione quae itaque error voluptate tempora consectetur enim architecto voluptatibus inventore nisi?
+</p>
+
+<table>
+    <thead>
+        <th>Font Family</th>
+        <th>Font Size</th>
+        <th>Letter Spacing</th>
+        <th>Font Weight</th>
+        <th>Text Transform</th>
+        <th>Text Decoration</th>
+        <th>Border</th>
+        <th>Border Color</th>
+    </thead>
+    <tbody>
+        <tr>
+        <td>
+            <input type="radio" name="fontFamily" value="Arial" > Arial<br>
+            <input type="radio" name="fontFamily" value="Courier New" > Courier<br>
+            <input type="radio" name="fontFamily" value="Georgia" > Georgia<br>
+            <input type="radio" name="fontFamily" value="Verdana" > Verdana
+        </td>
+    
+        <td>
+            <input type="radio" name="fontSize" value="10px" > 10px<br>
+            <input type="radio" name="fontSize" value="15px" > 15px<br>
+            <input type="radio" name="fontSize" value="20px" > 20px<br>
+            <input type="radio" name="fontSize" value="25px" > 25px
+        </td>
+    
+        <td>
+            <input type="radio" name="letterSpacing" value="0px" > 0px<br>
+            <input type="radio" name="letterSpacing" value="2px" > 2px<br>
+            <input type="radio" name="letterSpacing" value="5px" > 5px<br>
+            <input type="radio" name="letterSpacing" value="10px" > 10px
+        </td>
+    
+        <td>
+            <input type="radio" name="fontWeight" value="normal" > Normal<br>
+            <input type="radio" name="fontWeight" value="bold" > Bold<br>
+            <input type="radio" name="fontWeight" value="900" > 900<br>
+            <input type="radio" name="fontWeight" value="600" > 600
+        </td>
+    
+        <td>
+            <input type="radio" name="textTransform" value="none" > none<br>
+            <input type="radio" name="textTransform" value="uppercase" > uppercase<br>
+            <input type="radio" name="textTransform" value="lowercase" > lowercase<br>
+            <input type="radio" name="textTransform" value="capitalize" > capitalize
+        </td>
+    
+        <td>
+            <input type="radio" name="textDecoration" value="none" > none<br>
+            <input type="radio" name="textDecoration" value="line-through" > line-through<br>
+            <input type="radio" name="textDecoration" value="overline" > overline<br>
+            <input type="radio" name="textDecoration" value="underline" > underline<br/>
+            <input type="radio" name="textDecoration" value="underline overline" > underline overline
+        </td>
+        <td>
+            <input type="radio" name="Border" value="none" > none<br>
+            <input type="radio" name="Border" value="dotted" > dotted<br>
+            <input type="radio" name="Border" value="double" > double<br>
+            <input type="radio" name="Border" value="groovy" > groovy<br />
+            <input type="radio" name="Border" value="dashed" >dashed
+        </td>
+        <td>
+            <input type="radio" name="borderColor" value="red" > red<br>
+            <input type="radio" name="borderColor" value="green" > green<br>
+            <input type="radio" name="borderColor" value="blue" > blue<br>
+            <input type="radio" name="borderColor" value="orange" > orange<br>
+            <input type="radio" name="borderColor" value="purple" > purple
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let text = document.getElementById('styleText');
+        let inputs = document.getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("change", updateStyle);
+    }
+function updateStyle(event) {
+    let { name, value } = event.target;
+
+    switch (name) {
+        case "fontFamily":
+            text.style.fontFamily = value;
+            break;
+        case "fontSize":
+            text.style.fontSize = value;
+            break;
+        case "letterSpacing":
+            text.style.letterSpacing = value;
+            break;
+        case "fontWeight":
+            text.style.fontWeight = value;
+            break;
+        case "textTransform":
+            text.style.textTransform = value;
+            break;
+        case "textDecoration":
+            text.style.textDecoration = value;
+            break;
+        case "borderColor":
+            text.style.borderColor = value;
+            break;
+        case "Border":   
+            text.style.border = value;  
+            break;
+        default:
+            console.log('Nothing here....:', name);
+    }
+}
+})
+</script>
+  </body>
+</html>

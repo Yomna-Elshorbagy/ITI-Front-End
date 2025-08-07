@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+    <style>
+      body {
+        background-color: aliceblue;
+        padding: 30px;
+      }
+      form {
+        padding: 30px 40px 30px 30px;
+        width: 60%;
+        margin: auto;
+        background-color: rgb(176, 196, 230);
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 8px;
+        margin: 8px auto;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input[type="text"]:hover {
+        border-color: #999;
+      }
+
+      input[type="text"]:focus {
+        border-color: #0d8bd9;
+        box-shadow: 0 0 0 3px rgba(13, 139, 217, 0.2);
+      }
+      .hobbies span {
+        padding: 10px;
+      }
+      button {
+        margin-top: 10px;
+        margin-left: 15px;
+        padding: 10px 15px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+      }
+      button:hover {
+        background-color: rgb(162, 162, 174);
+        color: #fff;
+        scale: 1.2;
+      }
+      .alertError {
+        text-align: center;
+        color: rgb(176, 87, 87);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <form id="registerForm" action="./welcome.html" method="post">
+        <label>
+          Name:
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter your Full name"
+          />
+          <span id="nameError" class="alertError"></span>
+        </label>
+
+        <label>
+          Country:
+          <select id="countrySelect" onchange="turnZipCode()">
+            <option value="">Select Country</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Algeria">Algeria</option>
+            <option value="Morocco">Morocco</option>
+            <option value="Kuwait">Kuwait</option>
+            <option value="Lebanon">Lebanon</option>
+          </select>
+        </label>
+
+        <label>
+          Zip:
+          <input type="text" id="zipInput" readonly />
+        </label>
+
+        <label>
+          E-Mail:
+          <input type="text" id="emailInput" />
+          <span id="emailError" class="alertError"></span>
+        </label>
+
+        <label>Hobbies:</label><br />
+        <div class="hobbies">
+          <span
+            >Writing<input type="checkbox" name="hobbies" value="writing"
+          /></span>
+          <span
+            >Readingx<input type="checkbox" name="hobbies" value="reading"
+          /></span>
+          <span
+            >Swimming<input type="checkbox" name="hobbies" value="swimming"
+          /></span>
+          <span
+            >Sleeping
+            <input type="checkbox" name="hobbies" value="sleeping" /></span
+          ><br /><br />
+        </div>
+        <span id="hobbiesError" class="alertError"></span>
+
+        <br /><br />
+
+        <div class="button-group">
+          <button type="submit" onclick="validatformReigester()">
+            Register
+          </button>
+          <button type="button" onclick="clearForm()">Clear</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      window.onload = () => {
+        document.getElementById("nameInput").focus();
+      };
+
+      document.getElementById("nameInput").addEventListener("blur", () => {
+        let nameInput = document.getElementById("nameInput");
+        if (nameInput.value.trim() === "") {
+          nameInput.focus();
+        } else {
+          nameError.innerText = "";
+        }
+      });
+
+      function turnZipCode() {
+        let country = document.getElementById("countrySelect").value;
+        let zipInput = document.getElementById("zipInput");
+
+        switch (country) {
+          case "Egypt":
+            zipInput.value = "1234";
+            break;
+          case "Algeria":
+            zipInput.value = "2345";
+            break;
+          case "Morocco":
+            zipInput.value = "3456";
+            break;
+          case "Kuwait":
+            zipInput.value = "4567";
+            break;
+          case "Lebanon":
+            zipInput.value = "5678";
+            break;
+          default:
+            zipInput.value = "";
+        }
+      }
+
+      function validateEmail(email) {
+        let emailPattern = /^[a-zA-Z0-9]{3,16}@[a-zA-Z]{4,6}\.com$/i;
+        return emailPattern.test(email.trim());
+      }
+
+      function clearForm() {
+        if (confirm("Do you  want to clear the form?")) {
+          document.getElementById("registerForm").reset();
+          document.getElementById("zipInput").value = "";
+          document.getElementById("nameError").textContent = "";
+          document.getElementById("emailError").textContent = "";
+          document.getElementById("hobbiesError").textContent = "";
+          document.getElementById("nameInput").focus();
+        }
+      }
+
+      function validatformReigester() {
+        event.preventDefault();
+        let email = document.getElementById("emailInput");
+        let emailError = document.getElementById("emailError");
+        let name = document.getElementById("nameInput");
+        let nameError = document.getElementById("nameError");
+        let hobbiesError = document.getElementById("hobbiesError");
+        let hobbies = document.querySelectorAll(
+          'input[name="hobbies"]:checked'
+        );
+
+        //=====> validate name ======>
+        let valid = true;
+        if (name.value.trim() === "") {
+          nameError.innerText = "Please enter your full name.";
+          name.focus();
+          valid = false;
+        } else {
+          nameError.innerText = "";
+        }
+        //======> validate email =====>
+        if (!validateEmail(email.value.trim())) {
+          emailError.innerText = "Please enter a valid email address.";
+          email.focus();
+          valid = false;
+        } else {
+          emailError.innerText = "";
+        }
+
+        //====> validate hoppies =====>
+        if (hobbies.length === 0) {
+          hobbiesError.innerText = "Please choose at least one hobby.";
+          valid = false;
+        } else {
+          hobbiesError.innerText = "";
+        }
+
+        if (valid) {
+          document.getElementById("registerForm").submit();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <style>
+    body {
+      padding: 30px;
+      background-color: aliceblue;
+      text-align: center;
+    }
+    .categry-options,
+    .inpute-data,
+    .search-input {
+      padding: 10px;
+      margin: 15px 10px;
+    }
+
+    form {
+      width: 70%;
+      background-color: rgb(195, 221, 212);
+      margin: auto;
+      padding: 15px;
+    }
+    input[type="text"] {
+      width: 320px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    input[type="text"]:hover {
+      border-color: #999;
+    }
+
+    input[type="text"]:focus {
+      border-color: #0d8bd9;
+      box-shadow: 0 0 0 3px rgba(13, 139, 217, 0.2);
+    }
+    button {
+      padding: 10px;
+      color: #fff;
+      background-color: rgb(160, 181, 191);
+      border: none;
+      border-radius: 3px;
+      font-size: 15px;
+      font-weight: bold;
+      width: 350px;
+    }
+    button:hover {
+      background-color: #4f6c7e;
+    }
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+      text-align: center;
+    }
+    th,
+    td {
+      padding: 15px;
+      border: 1px solid #ccc;
+    }
+    .alert {
+      color: rgb(181, 41, 41);
+      /* visibility: hidden; */
+      display: none;
+    }
+  </style>
+  <body>
+    <form>
+      <div class="categry-options">
+        <label for="category">New Types: </label>
+        <input type="radio" name="category" value="sports" id="sport" />
+        <label for="sport">Sport</label>
+        <input type="radio" name="category" value="social" id="social" />
+        <label for="social">Social</label>
+        <input type="radio" name="category" value="politics" />
+        <label for="politics">Politics</label>
+      </div>
+
+      <div class="inpute-data">
+        <input type="text" placeholder="add data here..." id="categoryInput" />
+        <p class="alert">Please Select Category Option and write its name</p>
+      </div>
+      <button type="submit" onclick="addCategory()">Add data</button>
+
+      <div class="search-input">
+        <label for="search">Search :</label><br />
+        <input
+          type="text"
+          placeholder="Search here"
+          id="searchInput"
+          oninput="handleSearch(event)"
+        />
+      </div>
+    </form>
+
+    <table id="tableData">
+      <thead></thead>
+      <tbody id="categoryBody"></tbody>
+    </table>
+
+    <script>
+      //======> create localstorage ======>
+      let category = JSON.parse(localStorage.getItem("categories")) || [];
+
+      //======> add category with type ======>
+      function addCategory() {
+        event.preventDefault();
+        let categoryInput = document.getElementById("categoryInput");
+        let categoryText = categoryInput.value.trim();
+        let categoryType = document.querySelector(
+          'input[name="category"]:checked'
+        )?.value;
+        let alert = document.getElementsByClassName("alert")[0];
+        console.log(categoryInput);
+        console.log(categoryText);
+
+        //======> condition to check if the user enter all data or not ======>
+        if (categoryText !== "" && categoryType) {
+          category.push({
+            element: categoryText,
+            categoryType: categoryType,
+            done: false,
+          });
+          alert.style.display = "none";
+          categoryInput.value = "";
+          prepareTable();
+        } else {
+          console.log(alert);
+
+          alert.style.display = "block";
+        }
+      }
+
+      //======> separated function to create table elements ======>
+      function prepareTable() {
+        let tableBody = document.getElementById("categoryBody");
+        let tableHead = document
+          .getElementById("tableData")
+          .querySelector("thead");
+
+        tableBody.innerHTML = "";
+        tableHead.innerHTML = ""; // ===> to remove duplicate for each time adding
+
+        //======> condition to create element if there is length ======>
+        if (category.length > 0) {
+          let typeTh = document.createElement("th");
+          typeTh.innerText = "Type";
+          tableHead.appendChild(typeTh);
+
+          let categoryTh = document.createElement("th");
+          categoryTh.innerText = "category";
+          tableHead.appendChild(categoryTh);
+        }
+
+        category.forEach((categoryData) => {
+          let tableRaw = document.createElement("tr");
+
+          //raw colors
+          if (categoryData.categoryType === "sports") {
+            tableRaw.style.backgroundColor = " #dfeee9";
+          } else if (categoryData.categoryType === "social") {
+            tableRaw.style.backgroundColor = "#bce3f8";
+          } else if (categoryData.categoryType === "politics") {
+            tableRaw.style.backgroundColor = "#f7c6c6";
+          }
+
+          //create category
+          let categoryTd = document.createElement("td");
+          categoryTd.textContent = categoryData.element;
+
+          //create category
+          let categoryTdType = document.createElement("td");
+          categoryTdType.textContent = categoryData.categoryType;
+
+          //append chields
+          tableRaw.appendChild(categoryTd);
+          tableRaw.appendChild(categoryTdType);
+          tableBody.appendChild(tableRaw);
+        });
+
+        localStorage.setItem("categories", JSON.stringify(category));
+      }
+
+      function handleSearch(event) {
+        let searchText = event.target.value.toLowerCase();
+        let copyCategory = [...category];
+        category = copyCategory.filter(
+          (item) =>
+            item.element.toLowerCase().includes(searchText) ||
+            item.categoryType.toLowerCase().includes(searchText)
+        );
+        prepareTable();
+        category = copyCategory;
+      }
+      prepareTable();
+    </script>
+  </body>
+</html>

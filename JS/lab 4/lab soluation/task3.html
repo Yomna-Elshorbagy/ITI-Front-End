@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <style>
+        body{
+            background-color: rgb(226, 217, 204);
+            padding: 30px;
+        }
+        table {
+        width: 80%;
+        margin: 30px auto;
+        padding: 25px;
+        border-spacing: 0;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ccc;
+    }
+        td,th {
+        padding: 10px 5px;
+        background-color: #fafafa;
+        border-right: 1px solid #ccc;
+    }
+      th:last-child,
+      td:last-child {
+        border-right: none;
+    }
+
+    p{
+        text-align: center;
+        width: 50%;
+        background-color: #d5cdcd;
+        padding: 10px;
+        margin: auto;
+    }
+    </style>
+  </head>
+  <body>
+
+<p id="styleText">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, deserunt minus omnis laudantium sit eaque, neque harum incidunt ratione quae itaque error voluptate tempora consectetur enim architecto voluptatibus inventore nisi?
+</p>
+
+<table>
+    <thead>
+        <th>Font Family</th>
+        <th>Font Size</th>
+        <th>Letter Spacing</th>
+        <th>Font Weight</th>
+        <th>Text Transform</th>
+        <th>Text Decoration</th>
+        <th>Border</th>
+        <th>Border Color</th>
+    </thead>
+    <tbody>
+         <tr>
+        <td>
+            <input type="radio" name="fontFamily" value="Arial" onclick="updateStyle(event)"> Arial<br>
+            <input type="radio" name="fontFamily" value="Courier New" onclick="updateStyle(event)"> Courier<br>
+            <input type="radio" name="fontFamily" value="Georgia" onclick="updateStyle(event)"> Georgia<br>
+            <input type="radio" name="fontFamily" value="Verdana" onclick="updateStyle(event)"> Verdana
+        </td>
+    
+        <td>
+            <input type="radio" name="fontSize" value="10px" onclick="updateStyle(event)"> 10px<br>
+            <input type="radio" name="fontSize" value="15px" onclick="updateStyle(event)"> 15px<br>
+            <input type="radio" name="fontSize" value="20px" onclick="updateStyle(event)"> 20px<br>
+            <input type="radio" name="fontSize" value="25px" onclick="updateStyle(event)"> 25px
+        </td>
+    
+        <td>
+            <input type="radio" name="letterSpacing" value="0px" onchange="updateStyle(event)"> 0px<br>
+            <input type="radio" name="letterSpacing" value="2px" onchange="updateStyle(event)"> 2px<br>
+            <input type="radio" name="letterSpacing" value="5px" onchange="updateStyle(event)"> 5px<br>
+            <input type="radio" name="letterSpacing" value="10px" onchange="updateStyle(event)"> 10px
+        </td>
+    
+        <td>
+            <input type="radio" name="fontWeight" value="normal" onchange="updateStyle(event)"> Normal<br>
+            <input type="radio" name="fontWeight" value="bold" onchange="updateStyle(event)"> Bold<br>
+            <input type="radio" name="fontWeight" value="900" onchange="updateStyle(event)"> 900<br>
+            <input type="radio" name="fontWeight" value="600" onchange="updateStyle(event)"> 600
+        </td>
+    
+        <td>
+            <input type="radio" name="textTransform" value="none" onchange="updateStyle(event)"> none<br>
+            <input type="radio" name="textTransform" value="uppercase" onchange="updateStyle(event)"> uppercase<br>
+            <input type="radio" name="textTransform" value="lowercase" onchange="updateStyle(event)"> lowercase<br>
+            <input type="radio" name="textTransform" value="capitalize" onchange="updateStyle(event)"> capitalize
+        </td>
+    
+        <td>
+            <input type="radio" name="textDecoration" value="none" onchange="updateStyle(event)"> none<br>
+            <input type="radio" name="textDecoration" value="line-through" onchange="updateStyle(event)"> line-through<br>
+            <input type="radio" name="textDecoration" value="overline" onchange="updateStyle(event)"> overline<br>
+            <input type="radio" name="textDecoration" value="underline" onchange="updateStyle(event)"> underline<br/>
+            <input type="radio" name="textDecoration" value="underline overline" onchange="updateStyle(event)"> underline overline
+        </td>
+        <td>
+            <input type="radio" name="Border" value="none" onchange="updateStyle(event)"> none<br>
+            <input type="radio" name="Border" value="dotted" onchange="updateStyle(event)"> dotted<br>
+            <input type="radio" name="Border" value="double" onchange="updateStyle(event)"> double<br>
+            <input type="radio" name="Border" value="groovy" onchange="updateStyle(event)"> groovy<br />
+            <input type="radio" name="Border" value="dashed" onchange="updateStyle(event)">dashed
+        </td>
+        <td>
+            <input type="radio" name="borderColor" value="red" onchange="updateStyle(event)"> red<br>
+            <input type="radio" name="borderColor" value="green" onchange="updateStyle(event)"> green<br>
+            <input type="radio" name="borderColor" value="blue" onchange="updateStyle(event)"> blue<br>
+            <input type="radio" name="borderColor" value="orange" onchange="updateStyle(event)"> orange<br>
+            <input type="radio" name="borderColor" value="purple" onchange="updateStyle(event)"> purple
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+function updateStyle(event) {
+
+    let text = document.getElementById('styleText');
+    let { name, value } = event.target;
+
+    switch (name) {
+        case "fontFamily":
+            text.style.fontFamily = value;
+            break;
+        case "fontSize":
+            text.style.fontSize = value;
+            break;
+        case "letterSpacing":
+            text.style.letterSpacing = value;
+            break;
+        case "fontWeight":
+            text.style.fontWeight = value;
+            break;
+        case "textTransform":
+            text.style.textTransform = value;
+            break;
+        case "textDecoration":
+            text.style.textDecoration = value;
+            break;
+        case "borderColor":
+            text.style.borderColor = value;
+            break;
+        case "Border":   
+            text.style.border = value;  
+            break;
+        default:
+            console.log('Nothing here....:', name);
+    }
+}
+
+</script>
+  </body>
+</html>

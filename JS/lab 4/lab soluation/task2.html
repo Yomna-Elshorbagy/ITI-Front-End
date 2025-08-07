@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2 - To do list</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      body {
+        background-color: #eadbdb;
+        font-family: "Courier New", Courier, monospace;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: brown;
+      }
+      .inputData {
+        width: 80%;
+        margin: 15px auto;
+        text-align: center;
+      }
+      input[type="text"] {
+        padding: 12px;
+        outline: none;
+        border: 1px solid #ccc;
+        width: 350px;
+        margin: 10px 20px;
+        border-radius: 3px;
+      }
+
+      input[type="text"]:hover {
+        border-color: #999;
+      }
+
+      input[type="text"]:focus {
+        border-color: #0d8bd9;
+        box-shadow: 0 0 0 3px rgba(13, 139, 217, 0.2);
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 10px auto;
+        text-align: center;
+      }
+      th {
+        background-color: rgb(126, 1, 1);
+        color: white;
+      }
+      th,
+      td {
+        padding: 15px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px;
+        color: #fff;
+        background-color: gray;
+        border: none;
+        border-radius: 3px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: rgb(102, 88, 88);
+        font-size: 14px;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .deleteBtn {
+        color: rgb(147, 94, 94);
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+      .deleteBtn:hover {
+        color: darkred;
+        transform: scale(1.3);
+      }
+      .odd {
+        background-color: #c8c6c6;
+      }
+      .even {
+        background-color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputData">
+      <h1>To do organizer✍️</h1>
+      <input
+        type="text"
+        placeholder="Add The Task here 💪 ..!"
+        id="taskInput"
+      />
+      <button type="submit" onclick="addTask()">Add Task 📋</button>
+    </div>
+
+    <table id="taskTable">
+      <thead>
+        <tr>
+          <th>Done</th>
+          <th>Task</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="taskBody"></tbody>
+    </table>
+
+    <script>
+      //====== prepare array of tasks ====>
+      let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      // let tasks = [];
+      let cookies = document.cookie.split(";");
+
+      for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i].trim();
+        if (c.startsWith("tasks=")) {
+          try {
+            tasks = JSON.parse(c.substring(6));
+          } catch {
+            tasks = [];
+          }
+        }
+      }
+
+      function updateCookie() {
+        let expires = new Date(
+          Date.now() + 30 * 24 * 60 * 60 * 1000
+        ).toUTCString();
+        document.cookie =
+          "tasks=" + JSON.stringify(tasks) + ";expires=" + expires;
+      }
+
+      //====== delete tasks with sweetalert ====>
+      function deleteTask(index) {
+        var confirmDelete = confirm(
+          "Are you sure you want to delete this task?"
+        );
+        if (confirmDelete) {
+          tasks.splice(index, 1);
+          prepareTask();
+          alert("Task has been deleted.");
+        }
+      }
+      //====== delete task ====>
+      function deleteTask(index) {
+        var confirmDelete = confirm(
+          "Are you sure you want to delete this task?"
+        );
+        if (confirmDelete) {
+          tasks.splice(index, 1);
+          prepareTask();
+          alert("Task has been deleted.");
+        }
+      }
+      function toggleData(index) {
+        tasks[index].done = !tasks[index].done;
+        prepareTask();
+      }
+
+      //====== add a new task ====>
+      function addTask() {
+        event.preventDefault();
+        const taskInput = document.getElementById("taskInput");
+        const taskText = taskInput.value.trim();
+
+        if (taskText !== "") {
+          document.cookie = "text" + taskText + "done" + false;
+          tasks.push({ text: taskText, done: false });
+          taskInput.value = "";
+          prepareTask();
+        }
+      }
+
+      //====== prepare all table date of tasks ====>
+      function prepareTask() {
+        let tableBody = document.getElementById("taskBody");
+        tableBody.innerHTML = "";
+
+        tasks.forEach((task, index) => {
+          let tableRaw = document.createElement("tr");
+          tableRaw.classList.add(index % 2 === 0 ? "even" : "odd");
+
+          // done column
+          let checkInputCell = document.createElement("td");
+          let checkInput = document.createElement("input");
+          checkInput.type = "checkbox";
+          checkInput.checked = task.done;
+          checkInput.onclick = () => toggleData(index);
+          checkInputCell.appendChild(checkInput);
+
+          //  task column
+          let taskTextCell = document.createElement("td");
+          taskTextCell.textContent = task.text;
+          if (task.done) {
+            taskTextCell.classList.add("completed");
+          }
+          //delete column
+          let deleteIconCell = document.createElement("td");
+          deleteIconCell.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+          deleteIconCell.onclick = () => deleteTask(index);
+          deleteIconCell.classList.add("deleteBtn");
+
+          // apend childs
+          tableRaw.appendChild(checkInputCell);
+          tableRaw.appendChild(taskTextCell);
+          tableRaw.appendChild(deleteIconCell);
+          tableBody.appendChild(tableRaw);
+        });
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        updateCookie();
+      }
+
+      //=== call here why ya yamona ????? to save data in table when refresh==>
+      prepareTask();
+    </script>
+  </body>
+</html>

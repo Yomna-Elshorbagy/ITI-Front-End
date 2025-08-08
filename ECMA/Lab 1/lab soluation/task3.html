@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <script>
+      //====> Q3
+      //   let projectId;
+      //   while (true) {
+      //     projectId = prompt("Enter project Id");
+      //     if (isNaN(projectId) || projectId.trim() === "") {
+      //       alert("you should enter Number value");
+      //     } else {
+      //       break;
+      //     }
+      //   }
+      //   let projectName;
+      //   while (true) {
+      //     projectName = prompt("Enter project Name");
+      //     if (projectName.trim() === "" || !isNaN(projectName)) {
+      //       alert("you should enter the value");
+      //     } else {
+      //       break;
+      //     }
+      //   }
+      //   let duration;
+      //   while (true) {
+      //     duration = prompt("Enter Duration ...");
+      //     if (duration.trim() === "") {
+      //       alert("you should enter the duration");
+      //     } else {
+      //       break;
+      //     }
+      //   }
+
+      //   const project = {
+      //     projectId,
+      //     projectName,
+      //     duration,
+      //     printData() {
+      //       console.log(`project Name is ${this.projectName}`);
+      //       console.log(`project id is ${this.projectId}`);
+      //       console.log(`project duration is ${this.duration}`);
+      //     },
+      //   };
+      //   project.printData();
+
+      let project = {};
+      let numproperty;
+      while (true) {
+        numProperty = prompt("enter Numbers of property");
+        if (isNaN(numProperty) || numProperty.trim() === "") {
+          alert("you should enter Number value");
+        } else {
+          break;
+        }
+      }
+      for (let i = 0; i < numProperty; i++) {
+        let key;
+        while (true) {
+          key = prompt(`Property name:`);
+
+          if (!key || key.includes(" ") || !isNaN(key[0])) {
+            alert("Enter valid key: no spaces and cannot start with a number.");
+          } else {
+            break;
+          }
+        }
+        let value = prompt(`property value  for "${key}" is`);
+        project[key] = value;
+      }
+      project.printData = function () {
+        for (let key in project) {
+          console.log(`${key} is ${project[key]}`);
+        }
+      };
+      project.printData();
+      console.log(project);
+    </script>
+  </body>
+</html>

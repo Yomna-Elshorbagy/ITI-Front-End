@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <script>
+      //====> Q2
+      function calculateFun(op, ...numbers) {
+        let result = 0;
+        //     if (op === "+") {
+        //       result = numbers.reduce((c, v) => c + v, 0);
+        //       console.log(`result for sum operation of ${numbers} is ${result}`);
+        //     } else if (op == "*") {
+        //       result = numbers.reduce((c, v) => c * v, 1);
+        //       console.log(
+        //         `result for multiply operation of ${numbers} is ${result}`
+        //       );
+        //     } else if ((op = "/")) {
+        //       result = numbers.reduce((c, v) => c / v, 1);
+        //       console.log(
+        //         `result for deviation operation of ${numbers} is ${result}`
+        //       );
+        //     } else {
+        //       ("invalid operator");
+        //     }
+
+        switch (op) {
+          case "+":
+            result = numbers.reduce((c, v) => c + v, 0);
+            console.log(`result for sum operation of ${numbers} is ${result}`);
+            break;
+          case "*":
+            result = numbers.reduce((c, v) => c * v, 1);
+            console.log(
+              `result for multiply operation of ${numbers} is ${result}`
+            );
+            break;
+          case "/":
+            result = numbers.reduce((c, v) => c / v, 1);
+            console.log(
+              `result for deviation operation of ${numbers} is ${result}`
+            );
+            break;
+          default:
+            "invalid operator";
+        }
+      }
+      calculateFun("+", 1, 4, 5, 6);
+    </script>
+  </body>
+</html>

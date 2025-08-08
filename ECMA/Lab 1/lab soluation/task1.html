@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task ES5</title>
+  </head>
+  <body>
+    <script>
+      let arrNumbers = [50, 70, 20, 60, 25, 30, 33];
+
+      //====> Q1
+      //===> 1.1 sorting assending
+      let arrAsc = arrNumbers.slice().sort((a, b) => a - b);
+      console.log(`arr Asending :  ${arrAsc}`);
+
+      //===> 1.2 sorting desending
+      let arrDesc = arrNumbers.slice().sort((a, b) => b - a);
+      console.log(`arr Desending :  ${arrDesc}`);
+      console.log(arrNumbers);
+
+      //===> 1.3 filtering
+      let filterNumbers = arrNumbers.filter((num) => num > 50);
+      console.log(` Numbers > 50 are: ${filterNumbers}`);
+
+      //===> 1.4 display max and min
+      let maxNumbers = Math.max(...arrNumbers);
+      let minNumbers = Math.min(...arrNumbers);
+      console.log(`Max is : ${maxNumbers}`);
+      console.log(`Min is : ${minNumbers}`);
+
+ 
+    </script>
+  </body>
+</html>

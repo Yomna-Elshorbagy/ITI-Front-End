@@ -1,0 +1,24 @@
+@use "variables" as *;
+  .btn-base {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+  }
+.btn-1 {
+  @extend .btn-base;
+  background-color: #3498db;
+}
+
+.btn-2 {
+  @extend .btn-base;
+  background-color: #2ecc71;
+}
+
+.btn-3 {
+  @extend .btn-base;
+  background-color: #e74c3c;
+}

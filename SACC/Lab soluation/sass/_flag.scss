@@ -1,0 +1,44 @@
+$flags: (
+  egypt: (
+    red,
+    white,
+    black,
+  ),
+  syria: (
+    green,
+    white,
+    black,
+  ),
+  lebanon: (
+    red,
+    white,
+    red,
+  ),
+);
+
+// ==> function to return countries with 
+@function random-flag() {
+  $flag-names: map-keys($flags);
+  $random-index: random(length($flag-names));
+  $flag-name: nth($flag-names, $random-index);
+  @return map-get($flags, $flag-name);
+}
+
+@function flag-gradient($colors) {
+  @return linear-gradient(
+    to bottom,
+    nth($colors, 1) 33%,
+    nth($colors, 2) 33% 66%,
+    nth($colors, 3) 66%
+  );
+}
+
+$selected-flag: random-flag();
+
+.flag {
+  width: 400px;
+  height: 200px;
+  margin: 50px auto;
+  border: 2px solid #333;
+  background: flag-gradient($selected-flag);
+}

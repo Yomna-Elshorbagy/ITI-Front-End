@@ -1,0 +1,46 @@
+
+@use "variables" as *;
+@use "mixins" as *;
+
+section {
+  padding: $large-margin;
+
+  @include isPhone {
+    padding: $small-margin;
+    background-color: $bg-primary;
+  }
+
+  @include isLaptop {
+    padding: 20px;
+  }
+
+  @include isDesktop {
+    padding: 50px;
+  }
+}
+
+
+$min-size: 15px;
+$step: 5px;
+$count: 5;
+
+@for $i from 1 through $count {
+  $base-size: $min-size + ($step * ($i - 1));
+
+  .fs-#{$i} {
+    font-size: $base-size;
+
+    @include isPhone {
+      font-size: $base-size * 0.9;
+    }
+
+    @include isLaptop {
+      font-size: $base-size * 1.1;
+    }
+
+    @include isDesktop {
+      font-size: $base-size * 1.25;
+    }
+  }
+}
+

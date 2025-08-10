@@ -1,0 +1,23 @@
+
+@function randomColor() {
+  @return rgb(random(256) - 1, random(256) - 1, random(256) - 1);
+}
+
+// @function randomColor() {
+//   $r: math.random(255);
+//   $g: math.random(255);
+//   $b: math.random(255);
+//   @return rgb($r, $g, $b);
+// }
+
+@function randomGradient() {
+  $color1: randomColor();
+  $color2: randomColor();
+  $color3: randomColor();
+  @return linear-gradient(to right, $color1, $color2, $color3);
+}
+
+body {
+  background: randomGradient();
+  margin: 0;
+}

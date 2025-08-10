@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  background-color: #93d3f1;
+  color: white;
+}
+
+header {
+  background-color: #062b3d;
+  padding: 40px;
+  text-align: center;
+}
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  header h1 {
+    font-size: 14px;
+    background-color: #062b3d;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  header h1 {
+    font-size: 20px;
+    background-color: #93d3f1;
+  }
+}
+@media (min-width: 1025px) {
+  header h1 {
+    font-size: 28px;
+  }
+}
+
+section {
+  padding: 40px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  section {
+    padding: 10px;
+    background-color: #93d3f1;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  section {
+    padding: 20px;
+  }
+}
+@media (min-width: 1025px) {
+  section {
+    padding: 50px;
+  }
+}
+
+.fs-1 {
+  font-size: 15px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .fs-1 {
+    font-size: 13.5px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fs-1 {
+    font-size: 16.5px;
+  }
+}
+@media (min-width: 1025px) {
+  .fs-1 {
+    font-size: 18.75px;
+  }
+}
+
+.fs-2 {
+  font-size: 20px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .fs-2 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fs-2 {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1025px) {
+  .fs-2 {
+    font-size: 25px;
+  }
+}
+
+.fs-3 {
+  font-size: 25px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .fs-3 {
+    font-size: 22.5px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fs-3 {
+    font-size: 27.5px;
+  }
+}
+@media (min-width: 1025px) {
+  .fs-3 {
+    font-size: 31.25px;
+  }
+}
+
+.fs-4 {
+  font-size: 30px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .fs-4 {
+    font-size: 27px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fs-4 {
+    font-size: 33px;
+  }
+}
+@media (min-width: 1025px) {
+  .fs-4 {
+    font-size: 37.5px;
+  }
+}
+
+.fs-5 {
+  font-size: 35px;
+}
+@media (min-width: 321px) and (max-width: 480px) {
+  .fs-5 {
+    font-size: 31.5px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fs-5 {
+    font-size: 38.5px;
+  }
+}
+@media (min-width: 1025px) {
+  .fs-5 {
+    font-size: 43.75px;
+  }
+}
+
+.btn-base, .btn-3, .btn-2, .btn-1 {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+.btn-1 {
+  background-color: #3498db;
+}
+
+.btn-2 {
+  background-color: #2ecc71;
+}
+
+.btn-3 {
+  background-color: #e74c3c;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #062b3d;
+}
+
+.flag {
+  width: 400px;
+  height: 200px;
+  margin: 50px auto;
+  border: 2px solid #333;
+  background: linear-gradient(to bottom, green 33%, white 33% 66%, black 66%);
+}
+
+body {
+  background: linear-gradient(to right, rgb(122, 139, 214), rgb(192, 41, 233), rgb(248, 139, 50));
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

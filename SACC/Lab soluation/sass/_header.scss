@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+body {
+  margin: 0;
+  background-color: $bg-primary;
+  color: white;
+}
+header {
+  background-color: $bg-secondary;
+  padding: $large-margin;
+  text-align: center;
+
+  h1 {
+    font-size: $large-font-size;
+    margin: 0;
+
+    @include isPhone {
+      font-size: $small-font-size;
+      background-color: $bg-secondary;
+    }
+
+    @include isLaptop {
+      font-size: 20px;
+      background-color: $bg-primary;
+    }
+
+    @include isDesktop {
+      font-size: 28px;
+    }
+  }
+}

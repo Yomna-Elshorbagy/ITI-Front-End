@@ -1,0 +1,7 @@
+@use "variables" as *;
+
+footer {
+  text-align: center;
+  padding: $small-margin;
+  background-color: $bg-secondary;
+}

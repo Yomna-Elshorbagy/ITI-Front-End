@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+  />
+  <style>
+    body {
+      text-align: center;
+      background-color: #f8f9fa;
+      padding: 30px;
+    }
+    h1 {
+      text-shadow: 0 0 10px #8a697b;
+      color: #676765;
+    }
+    .errorAlarm {
+      text-align: center;
+      color: darkred;
+      visibility: hidden;
+      margin-top: 20px;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      visibility: hidden;
+    }
+    .result.mainCountry {
+      max-width: 300px;
+      visibility: hidden;
+    }
+    button {
+      padding: 10px;
+      color: #fff;
+      background-color: gray;
+      border: none;
+      border-radius: 3px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: rgb(102, 88, 88);
+      font-size: 14px;
+    }
+    input[type="text"] {
+      padding: 12px;
+      outline: none;
+      border: 1px solid #ccc;
+      width: 350px;
+      margin: 10px 20px;
+      border-radius: 3px;
+    }
+
+    input[type="text"]:hover {
+      border-color: #999;
+    }
+
+    input[type="text"]:focus {
+      border-color: #0d8bd9;
+      box-shadow: 0 0 0 3px rgba(13, 139, 217, 0.2);
+    }
+    img {
+      width: 300px;
+      height: 150px;
+      border-radius: 6px;
+    }
+    .neighbors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .neighbor-card {
+      flex: 0 1 calc(33.33% - 20px);
+      box-sizing: border-box;
+      border: 1px solid #888;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+    .region {
+      color: #676765;
+      box-shadow: 0 0 0 3px rgba(103, 123, 135, 0.2);
+      text-shadow: 0 0 10px #6e5e67;
+    }
+  </style>
+  <body>
+    <h1>Search about country Data</h1>
+    <div class="container">
+      <input
+        type="text"
+        placeholder="Enter The country you want to search"
+        id="countrySearch"
+      />
+      <button type="submit" id="btnSearch">Search about country</button>
+    </div>
+
+    <div class="errorAlarm" id="errorAlarm"></div>
+    <div class="result mainCountry" id="result"></div>
+    <div class="result" id="secondRes">
+      <div class="neighbors" id="neighborsContainer"></div>
+    </div>
+
+    <script>
+      //======== 1- Get all items from structure HTML ===>
+      let btnSearch = document.getElementById("btnSearch");
+      let result = document.getElementById("result");
+      let secondRes = document.getElementById("neighborsContainer");
+      let errorAlarm = document.getElementById("errorAlarm");
+
+      //======== 2- Add event to get data on click ===>
+      btnSearch.addEventListener("click", async () => {
+        let countrySearch = document
+          .getElementById("countrySearch")
+          .value.trim();
+        console.log(countrySearch);
+
+        //======== 3- check if not entering any data ===>
+        if (!countrySearch) {
+          errorAlarm.innerText = "Please enter a correct country name";
+          errorAlarm.style.visibility = "visible";
+          return;
+        }
+        //======== 4- fetch the data ===>
+        let response = await fetch(
+          `https://restcountries.com/v2/name/${countrySearch}`
+        );
+        //======== 5- check if data response not found ===>
+        if (!response.ok) {
+          errorAlarm.innerHTML = `<p>Country not found. Please try another one.</p>`;
+          errorAlarm.style.visibility = "visible";
+          return;
+        }
+        //======== 6- get response ===>
+        let countryData = await response.json();
+        const country = countryData[0];
+
+        console.log(countryData);
+        result.style.visibility = "visible";
+        result.innerHTML = `  
+        <img src="${country.flag}" alt="Flag of ${country.name}" />
+        <h3>${country.name}</h3>
+        <p class="region"> ${country.region}</p>
+        <p>population 👫 : ${country.population}</p>
+        <p>Currency 💰 : ${country.currencies[0].name} (${country.currencies[0].code})</p>
+        <p>Language 🗣️ : ${country.languages[0].name}</p>
+    `;
+
+        //======== 7- get borders for the country searched ===>
+        if (country.borders) {
+          secondRes.innerHTML = "";
+          errorAlarm.style.visibility = "hidden";
+
+          let neighborData = country.borders[1];
+          let neighborDataArr = country.borders;
+
+          //======== 8- to get borders for the country searched but only one border ===>
+          // let neighborRes = await fetch(
+          //   `https://restcountries.com/v2/alpha/${neighborData}`
+          // );
+
+          // let neighborResponse = await neighborRes.json();
+          // console.log(neighborResponse);
+          // secondRes.style.visibility = "visible";
+          // secondRes.innerHTML = `
+          //   <img src="${neighborResponse.flag}" alt="Flag of ${neighborResponse.name}" />
+          //   <h3>${neighborResponse.name}</h3>
+          //   <p class="region">${neighborResponse.region}</p>
+          //   <p>Population 👫: ${neighborResponse.population}</p>
+          //   <p>Currency 💰: ${neighborResponse.currencies[0].name} (${
+          //   neighborResponse.currencies[0].code
+          // })</p>
+          //   <p>Language 🗣️: ${neighborResponse.languages[0].name}</p>
+          // `;
+
+          //======== 8- looping to get all borders ===>
+          for (let i = 0; i < neighborDataArr.length; i++) {
+            const countryNeighbor = neighborDataArr[i];
+            let neighborRes = await fetch(
+              `https://restcountries.com/v2/alpha/${countryNeighbor}`
+            );
+            let neighborResponse = await neighborRes.json();
+            secondRes.style.visibility = "visible";
+            secondRes.innerHTML += `
+            <div class="neighbor-card">
+            <img src="${neighborResponse.flag}" alt="Flag of ${neighborResponse.name}" />
+            <h3>${neighborResponse.name}</h3>
+            <p class="region"> ${neighborResponse.region}</p>
+            <p>Population 👫: ${neighborResponse.population}</p>
+            <p>Currency💰: ${neighborResponse.currencies[0].name} (${neighborResponse.currencies[0].code})</p>
+            <p>Language 🗣️: ${neighborResponse.languages[0].name}</p>
+            </div>
+          `;
+          }
+        } else {
+          secondRes.innerHTML = `<p>No neighboring countries found</p>`;
+          errorAlarm.style.visibility = "visible";
+        }
+      });
+    </script>
+  </body>
+</html>

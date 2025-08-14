@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+      background-color: rgb(203, 202, 200);
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #255c93;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      width: 100%;
+      justify-content: center;
+    }
+    li {
+      background-color: #90caf9;
+      color: black;
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0;
+    }
+    li:hover {
+      background-color: #16283c;
+      color: #fff;
+      transform: scale(1.05);
+    }
+    li.active {
+      background-color: darkred;
+      color: #e3f2fd;
+      transform: scale(0.98);
+    }
+    li:focus {
+      outline: 2px dashed #1976d2;
+      outline-offset: 4px;
+    }
+    .ul {
+      display: inline-block;
+      text-decoration: none;
+      list-style-type: disc;
+    }
+    #details {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: auto;
+      width: 60%;
+      margin-top: 10px;
+      text-align: left;
+      visibility: hidden;
+    }
+    .change {
+      visibility: visible;
+    }
+  </style>
+  <body>
+    <h2>users List</h2>
+    <div class="container">
+      <ul id="list" class="ul"></ul>
+    </div>
+    <div id="details"></div>
+    <script>
+      let userList = document.getElementById("list");
+      const userDetails = document.getElementById("details");
+
+      //   fetch("https://jsonplaceholder.typicode.com/users")
+      //     .then((response) => response.json())
+      //     .then((users) =>
+      //       users.forEach((user) => {
+      //         let li = document.createElement("li");
+      //         li.innerText = user.name;
+      //         console.log(li);
+      //         li.addEventListener("click", () => displayUser(user));
+      //         userList.appendChild(li)
+      //       })
+      //     );
+
+      let getAllUsers = async () => {
+        let response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        let users = await response.json();
+
+        function setActiveItem(clickedItem) {
+          const allItems = document.querySelectorAll("#list li");
+          allItems.forEach((item) => item.classList.remove("active"));
+          clickedItem.classList.add("active");
+        }
+        users.forEach((user) => {
+          let li = document.createElement("li");
+          li.innerText = user.name;
+          li.addEventListener("click", () => {
+            setActiveItem(li);
+            displayUser(user);
+          });
+          userList.appendChild(li);
+        });
+      };
+
+      function displayUser(user) {
+        userDetails.style.visibility = "visible";
+        userDetails.innerHTML = `
+        <p> user Name is : ${user.username} </p>
+        <p> user Email is : ${user.email} </p>
+        <p> user Phone is : ${user.phone} </p>
+        <p> user Address is : ${user.address.street}  ${user.address.suite} ${user.address.city} ${user.address.zipcode}</p>
+        `;
+      }
+
+      getAllUsers();
+    </script>
+  </body>
+</html>

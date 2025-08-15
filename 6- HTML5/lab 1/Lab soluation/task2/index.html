@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation Task</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .buttons {
+        margin-bottom: 30px;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        position: relative;
+        animation: animeOne 8s linear infinite;
+      }
+
+      @keyframes animeOne {
+        0% {
+          top: 0;
+          left: 0;
+          background-color: orange;
+        }
+        25% {
+          top: 0;
+          left: 300px;
+          background-color: lightgreen;
+        }
+        50% {
+          top: 200px;
+          left: 300px;
+          background-color: deepskyblue;
+        }
+        75% {
+          top: 200px;
+          left: 0;
+          background-color: khaki;
+        }
+        100% {
+          top: 0;
+          left: 0;
+          background-color: orange;
+        }
+      }
+
+      .box:hover {
+        animation-play-state: paused;
+        transform: scale(1.1);
+      }
+
+      .paused {
+        animation-play-state: paused;
+      }
+
+      .stopped {
+        animation: none;
+        top: 0;
+        left: 0;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+      <button onclick="startAnimation()">Start</button>
+      <button onclick="pauseAnimation()">Pause</button>
+      <button onclick="stopAnimation()">Stop</button>
+    </div>
+
+    <div class="box" id="animatedBox"></div>
+
+    <script>
+      const box = document.getElementById("animatedBox");
+      window.onload = function () {
+        box.classList.add("paused");
+      };
+      function startAnimation() {
+        box.classList.remove("paused", "stopped");
+      }
+
+      function pauseAnimation() {
+        box.classList.add("paused");
+      }
+
+      function stopAnimation() {
+        box.classList.add("stopped");
+      }
+    </script>
+  </body>
+</html>

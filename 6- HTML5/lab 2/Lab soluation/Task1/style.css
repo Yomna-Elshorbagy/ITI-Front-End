@@ -1,0 +1,192 @@
+/* *** Global Style *** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+}
+/* ******* ==> Side Bar ******* */
+.sidebar {
+  width: 15rem;
+  height: 100vh;
+  background-color: #f2eded;
+  padding: 2rem;
+  border-right: 1px solid #ccc;
+}
+/* logo design */
+.sidebar .logo {
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 1.5rem;
+}
+/*Note why use => to make content before element || or layer over element || or when you want to implement animation
+   => you can use after or before to put content while animated text
+   => also when animate fixed icon it can be used to create content inside the animated icon
+   ===> HERE: we design the square over the logo
+   */
+.sidebar .logo::before {
+  content: ""; /*empty to design the shape i want in position needed*/
+  position: absolute; /*like i made child for this relative element*/
+  top: -1px; /*explain position from the element to put created content*/
+  left: -3px;
+  width: 0.9rem;
+  height: 1rem;
+  background-color: #c4a963;
+}
+/* links style */
+.sidebar .links {
+  padding-bottom: 1rem;
+}
+.sidebar .links a {
+  display: block;
+  text-decoration: none;
+  color: #746f6f;
+  padding: 0.3rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.sidebar .links .active {
+  color: #535252;
+}
+/* icons style */
+.sidebar .icons i {
+  padding: 1.5rem 0;
+  margin: 0.3rem;
+  color: #746f6f;
+  font-size: larger;
+}
+
+/* widget  & flicker style */
+.sidebar .widget,
+.sidebar .flickr {
+  margin-top: 1rem;
+  color: #746f6f;
+}
+.sidebar .widget h4,
+.sidebar .flickr h4 {
+  padding-bottom: 0.8rem;
+  color: #535252;
+}
+
+.sidebar .flickr .images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sidebar .flickr .images img {
+  width: calc(33.333% - 10px);
+  border-radius: 3px;
+}
+
+/* ********* ==> Nav Bar ********* */
+#container {
+  flex: 1; /* ===>Note: instead of calculating this will take all remaining space  */
+  /* width: calc(100vw - 15rem); */
+}
+.navbar {
+  background-color: #c4a963;
+  width: 100%;
+}
+.navbar ul {
+  display: flex;
+  justify-content: flex-start;
+  min-height: 10vh;
+  align-items: center;
+}
+.navbar ul > li {
+  list-style: none;
+  padding: 0 0.7rem;
+}
+.navbar ul > li > a {
+  text-decoration: none;
+  font: 1rem bold #fff;
+  color: #fff;
+}
+.navbar ul > li:hover {
+  padding: 0.5rem;
+  background-color: rgb(189, 177, 164);
+  border-radius: 0.25rem;
+}
+
+.navbar ul .activeItem {
+  padding: 0.625rem;
+  background-color: #89784b;
+  border-radius: 0.25rem;
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: x-large;
+}
+
+/* ********* ==> Gallery ********* */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  background-color: #fff;
+}
+.grid-item {
+  overflow: hidden; /* ===> Note: to remove scroll break vh when hover*/
+}
+.gallery img {
+  width: 100%;
+  height: 15.45rem;
+  display: block;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.gallery img:hover {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+/* ********** ===> Media Query for gallery ******* */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #container .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* ==> here navbar responsive==>*/
+  .navbar ul.nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #c4a963;
+    width: 100%;
+  }
+  .navbar ul.nav-list.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 2fr;
+  }
+  main .sidebar {
+    display: none !important;
+  }
+}

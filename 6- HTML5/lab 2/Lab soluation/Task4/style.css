@@ -1,0 +1,127 @@
+/* ****** ==> Global Style  ****** */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* *********** ==> Containers Style ********* */
+#container {
+  width: 80%;
+  margin: 3.125rem auto;
+  border: 0.2rem dashed lightseagreen;
+  padding: 1.25rem;
+}
+
+#mainWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 70vh;
+  margin: auto;
+  position: relative;
+}
+
+#mainWrapper > section {
+  width: 12.5rem;
+  text-align: center;
+  height: 6.25rem;
+  line-height: 6.25rem;
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+/* *********** ==> ball style ********* */
+#ball {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(31, 31, 149);
+  top: 0;
+  left: 0;
+  /* transform: translate(0, 0); */
+  /* transition: transform 0.4s ease, top 0.2s ease; */
+  z-index: 10;
+}
+/* *********** ==> Info Section ********* */
+#info {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#score,
+#timer {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: rgb(144, 66, 10);
+}
+
+button {
+  padding: 0.625rem;
+  background-color: rgb(211, 177, 54);
+  border-radius: 0.19rem;
+  color: #fff;
+  border: 1px solid rgb(165, 136, 32);
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(165, 136, 32);
+}
+
+/* *********** ==> Boxes Style ********* */
+#sectionOne {
+  background-color: red;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sectionOne:hover {
+  background-color: rgb(145, 10, 10);
+  color: white;
+}
+#sectionTwo {
+  background-color: yellow;
+  align-self: center;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sectionTwo:hover {
+  background-color: rgb(142, 142, 17);
+  color: white;
+}
+#sectionThree {
+  background-color: lightblue;
+  align-self: flex-end;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sectionThree:hover {
+  background-color: rgb(22, 95, 119);
+  color: white;
+}
+#sectionFour {
+  background-color: lightpink;
+  align-self: center;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sectionFour:hover {
+  background-color: rgb(186, 120, 130);
+  color: white;
+}
+#sectionFive {
+  background-color: lightgreen;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#sectionFive:hover {
+  background-color: rgb(73, 121, 73);
+  color: #fff;
+}
+
+.hover-effect {
+  color: white !important;
+  filter: brightness(85%);
+}

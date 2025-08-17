@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section id="container">
+        <div class="buttons">
+          <button id="start" class="start">start</button>
+          <button id="pause" class="pause">pause</button>
+          <button id="end" class="end">end</button>
+        </div>
+        <div id="animatedBox" class="box"></div>
+      </section>
+    </main>
+
+    <script>
+      let box = document.getElementById("animatedBox");
+      window.onload = function () {
+        box.classList.add("paused");
+      };
+      document.getElementById("start").addEventListener("click", () => {
+        box.classList.remove("paused", "stopped");
+      });
+      document.getElementById("pause").addEventListener("click", () => {
+        void box.offsetWidth;
+        box.classList.add("paused");
+      });
+      document.getElementById("end").addEventListener("click", () => {
+        box.classList.remove("paused");
+        box.classList.add("stopped");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,241 @@
+/* ******* ==> Global Style *** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+:root {
+  --primary-color: #89784b;
+  --secondary-color: #72653f;
+}
+/* ******* ==>Start  Navbar **** */
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--primary-color);
+  min-height: 10vh;
+  align-items: center;
+}
+ul > li {
+  list-style: none;
+}
+ul > li > a {
+  text-decoration: none;
+  font: bold 15px tahoma;
+  color: rgb(248, 247, 250);
+  padding: 0.5rem;
+}
+ul > li > a:hover {
+  color: rgb(98, 91, 91);
+  background-color: rgb(189, 177, 164);
+  border-radius: 0.25rem;
+}
+
+/* ******* ==>Start  header **** */
+.intro-sec {
+  background-image: url(./images/1.png);
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.intro-sec::before {
+  /*Note why use => to make content before element || or layer over element || or when you want to implement animation
+   => you can use after or before to put content while animated text
+   => also when animate fixed icon it can be used to create content inside the animated icon
+   ===> HERE: we Make layer transparent over the image to make it more smoothly
+   */
+  content: ""; /*empty to design the shape i want in position needed*/
+  position: absolute; /*like i made a child for this relative element*/
+  top: 0; /*explain position from the element to put created content*/
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+.intro-sec h3 {
+  font-size: 1.5rem;
+  z-index: 1;
+}
+.intro-sec button {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: var(--secondary-color);
+  font-size: 1.25rem;
+  color: #fff;
+  z-index: 1;
+}
+
+.intro-sec button:hover {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.down-icon {
+  width: 1.6rem;
+  height: 2.6rem;
+  position: absolute;
+  text-align: center;
+  bottom: 1.5rem;
+  border: 2px solid #fff;
+  border-radius: .625rem;
+  animation: scroll 1s infinite;
+}
+/* using after here to create content inside fixed animated icon*/
+.down-icon::after { 
+  content: "";
+  position: absolute;
+  width: .19rem;
+  height: .65rem;
+  background-color: #fff;
+  left: 45%;
+  top: .7rem;
+}
+
+@keyframes scroll {
+  0% {
+    bottom: 0%;
+  }
+  50% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: 15px;
+  }
+}
+
+/* ******* ==> starting location **** */
+/* heading of location */
+#location .header {
+  text-align: center;
+  padding: 2rem;
+}
+#location .header h2 {
+  color: darkred;
+  padding-bottom: 0.7rem;
+}
+/* location body */
+.locationBox {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  justify-content: center;
+}
+.map iframe {
+  width: 90%;
+  height: 37rem;
+  padding: 3.75rem;
+  display: block;
+}
+
+/* Right Side Branches Style */
+.branches {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 3.75rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.branch {
+  padding: 0.75rem 1rem;
+  background-color: #e8e8e8;
+  border-left: 5px solid steelblue;
+  font-family: Tahoma, sans-serif;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.branch:hover {
+  background-color: #dcdcdc;
+  transform: translateX(5px);
+}
+
+.main-branch {
+  border-left-color: darkred;
+  font-weight: bold;
+  color: #222;
+}
+
+
+/* ******* ==>Start Footer  **** */
+#footer {
+  width: 99vw;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 2.5rem 1.25rem 1.25rem;
+}
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  gap: 2.5rem;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 0.7rem 0;
+}
+
+/* ==> right side */
+.right-side {
+  width: 50%;
+}
+.right-side p {
+  margin: 0.5rem 0;
+  color: #ccc;
+}
+
+/* ==> left side */
+.left-side h3,
+.right-side h3 {
+  padding: 1rem 0;
+}
+.social-icons a {
+  color: #fff;
+  font-size: 1.25rem;
+  margin: 0 0.625rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.social-icons i {
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.color1 {
+  background-color: #3b5998;
+}
+.color2 {
+  background-color: #1da1f2;
+}
+.color3 {
+  background-color: #e1306c;
+}
+.color4 {
+  background-color: #0077b5;
+}
+
+.social-icons a:hover {
+  color: #d2cbcb;
+  opacity: 0.7;
+}

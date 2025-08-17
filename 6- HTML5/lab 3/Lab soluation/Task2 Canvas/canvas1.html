@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw many Squares</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+      body {
+        overflow: hidden;
+      }
+      #toolbar {
+        position: fixed;
+        top: 0;
+        background-color: #2f2f2f;
+        color: white;
+        font: bold 15px tahoma;
+        width: 100%;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        padding: 10px;
+        z-index: 1;
+      }
+
+      #radius-bar {
+        width: 200px;
+        padding: 10px;
+      }
+
+      .icreDecre,
+      #radiusValue,
+      #saveBtn {
+        padding: 8px 7px;
+        border-radius: 50%;
+        box-shadow: red 5px 5px 10px inset, blue -5px -5px inset;
+      }
+
+      .icreDecre:hover,
+      #saveBtn:hover {
+        cursor: pointer;
+        box-shadow: red -5px -5px 10px inset, blue 5px 5px inset;
+      }
+
+      #save-bar {
+        width: 200px;
+      }
+
+      #saveBtn {
+        margin-left: 250px;
+      }
+
+      #colorBar {
+        width: 600px;
+        margin-left: 150px;
+        padding: 10px;
+        display: -webkit-box;
+        -webkit-box-align: center;
+      }
+
+      .colors {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-left: 10px;
+      }
+
+      canvas {
+        display: block;
+      }
+      .active {
+        border: 2px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toolbar">
+      <div id="radius-bar">
+        <label>Size</label>
+        <span id="radiusValue" class="icreDecre">30</span>
+        <span id="increment" class="icreDecre">+</span>
+        <span id="decrement" class="icreDecre">-</span>
+      </div>
+
+      <div id="save-bar">
+        <span id="saveBtn">Save</span>
+      </div>
+
+      <div id="colorBar">
+        <div class="colors" style="background-color: red"></div>
+        <div class="colors" style="background-color: blue"></div>
+        <div class="colors" style="background-color: green"></div>
+        <div class="colors" style="background-color: lightgreen"></div>
+        <div class="colors" style="background-color: lightsalmon"></div>
+        <div class="colors" style="background-color: lightseagreen"></div>
+        <div class="colors" style="background-color: lightyellow"></div>
+        <div class="colors" style="background-color: gray"></div>
+      </div>
+    </div>
+
+    <canvas id="myCanvas">Sorry, update your browser and try again</canvas>
+
+    <script>
+      let canvas, context;
+      let size = 30;
+      let currentColor = "black";
+
+      //  1- Onload event firing to ==> get context &&
+      window.addEventListener("load", findItFirst);
+      function findItFirst() {
+        canvas = document.getElementById("myCanvas");
+        context = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // elements
+        incr = document.getElementById("increment");
+        decr = document.getElementById("decrement");
+        radiusValue = document.getElementById("radiusValue");
+
+        canvas.addEventListener("mousedown", drawSquare);
+
+        //2- increase size
+        incr.addEventListener("click", increaseSize);
+        //3- decrease size
+        decr.addEventListener("click", decreaseSize);
+
+        //4- change background color for the square
+        allColors = document.querySelectorAll(".colors");
+        for (let i = 0; i < allColors.length; i++) {
+          allColors[i].addEventListener("click", changeColor);
+          if (
+            allColors[i].style.backgroundColor ==
+            localStorage.getItem("selectedColor")
+          ) {
+            allColors[i].classList.add("active");
+
+            currentColor = allColors[i].style.backgroundColor;
+            context.fillStyle = currentColor;
+          }
+        }
+
+        //5- save image
+        document.getElementById("saveBtn").onclick = () => {
+          let link = document.createElement("a"); // ==> 1- create link
+          console.log(link);
+          link.download = "canvas.png"; // ==> 2- Tell the browser to download image
+          link.href = canvas.toDataURL(); // ==>3- base64-encoded image URL (a string) so saved png
+          link.click(); //==> 4- prompt browser to download image
+        };
+      }
+
+      //==> change Size
+      function increaseSize() {
+        size += 5;
+        checkSize(size);
+      }
+      function decreaseSize() {
+        size -= 5;
+        checkSize(size);
+      }
+
+      function checkSize(newSize) {
+        if (newSize > 50) newSize = 50;
+        if (newSize < 10) newSize = 10;
+        size = newSize;
+        radiusValue.innerText = size;
+      }
+      //==> Draw Square
+      function drawSquare(e) {
+        context.fillStyle = currentColor; // ==> set the drawing color value
+        context.fillRect(
+          //==> draw (x , y , width, height)
+          e.clientX - size / 2, // ==> give mouse position relative to view port
+          e.clientY - size / 2, // ==> by size /2 ==> to square center around the mouse click
+          size,
+          size
+        );
+      }
+      function changeColor(e) {
+        let oldSelectedColor = document.getElementsByClassName("active")[0];
+        if (oldSelectedColor) oldSelectedColor.classList.remove("active");
+        newClickOne = e.target;
+        newClickOne.className += " active ";
+        currentColor = newClickOne.style.backgroundColor;
+        context.fillStyle = currentColor;
+        localStorage.setItem("selectedColor", currentColor);
+      }
+    </script>
+  </body>
+</html>

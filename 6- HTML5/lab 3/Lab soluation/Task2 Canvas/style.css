@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none; /* prevent user from any select*/
+}
+body {
+  overflow: hidden;
+}
+#toolbar {
+  position: fixed;
+  top: 0;
+  background-color: #2f2f2f;
+  color: white;
+  font: bold 15px tahoma;
+  width: 100%;
+  display: -webkit-box; /* beside each other vertical */
+  -webkit-box-align: center;
+  padding: 10px;
+}
+
+#radius-bar {
+  /* border: 2px solid yellow; */
+  width: 200px;
+  padding: 10px;
+}
+.icreDecre,
+#radiusValue,
+#saveBtn {
+  /* border: 1px solid yellow; */
+  padding: 8px 7px;
+  border-radius: 50%;
+  box-shadow: red 5px 5px 10px inset, blue -5px -5px inset;
+}
+.icreDecre:hover,
+#saveBtn:hover {
+  cursor: pointer;
+  box-shadow: red -5px -5px 10px inset, blue 5px 5px inset;
+}
+
+#save-bar {
+  width: 200px;
+  /* border: 2px solid green ; */
+}
+#saveBtn {
+  margin-left: 250px;
+}
+
+#colorBar {
+  /* border: 2px solid yellow; */
+  width: 600px;
+  margin-left: 150px;
+  padding: 10px;
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+.colors {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+
+.active{
+     border: 2px solid white;
+}

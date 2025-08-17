@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video Task</title>
+    <style>
+      body {
+        background: #f3f3f3;
+        overflow: hidden;
+      }
+
+      #mainwrapper {
+        width: 80vw;
+        height: 80vh;
+        margin: 40px auto;
+        display: flex;
+        border: 3px solid #ccc;
+        border-radius: 20px;
+        background: linear-gradient(to right, #fff3e0, #ffe0b2);
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        overflow: visible;
+      }
+
+      #videolist {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+        padding: 20px;
+        background: #fefefe;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      #videolist button {
+        padding: 14px 55px;
+        border-radius: 8px;
+        border: 2px solid #2196f3;
+        background: #e3f2fd;
+        cursor: pointer;
+        transition: transform 0.6s ease, background-color 0.3s;
+        margin: 10px 10px;
+      }
+
+      #videolist button:hover {
+        background: #bbdefb;
+        transform: scale(1.5) rotate(360deg);
+      }
+      #videolist button.active {
+        background-color: #2b72ac;
+      }
+      #videowrapper {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      video {
+        transition: transform 1s ease;
+        cursor: pointer;
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+      }
+      video:hover {
+        transform: scale(1.5);
+        border-radius: 20%;
+        z-index: 10;
+      }
+
+      .btnColor {
+        background: #ccd6dd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+        margin: auto;
+        padding: 5px;
+        transition: background-color 0.8s;
+      }
+
+      .btnColor:hover {
+        background-color: rgb(182, 136, 52);
+      }
+      @keyframes slideOutLeft {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      video.slide-out {
+        animation: slideOutLeft 0.7s forwards;
+      }
+
+      video.slide-in {
+        animation: slideInRight 0.7s forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainwrapper">
+      <div id="videolist">
+        <div class="btnColor">
+          <button type="button">Video1</button>
+          <button type="button">Video2</button>
+          <button type="button">Video3</button>
+          <button type="button">Video4</button>
+          <button type="button">Video5</button>
+          <button type="button">Video6</button>
+          <button type="button">Video7</button>
+          <button type="button">Video8</button>
+          <button type="button">Video9</button>
+          <button type="button">Video10</button>
+          <button type="button">Video11</button>
+          <button type="button">Video12</button>
+          <button type="button">Video13</button>
+          <button type="button">Video14</button>
+        </div>
+      </div>
+
+      <div id="videowrapper">
+        <video id="myvideo" width="600" height="400" controls>
+          <source src="" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        let myVideo = document.getElementById("myvideo");
+        let buttons = document.querySelectorAll("#videolist button");
+        let currentIndex = 0;
+
+        let videoSources = [
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+          "universe.mp4",
+        ];
+
+        let playVideoAtIndex = (index) => {
+          if (index < 0 || index >= buttons.length) return;
+          buttons.forEach((b) => b.classList.remove("active"));
+          let btn = buttons[index];
+          btn.classList.add("active");
+
+          myVideo.src = videoSources[index];
+          myVideo.removeAttribute("controls");
+          myVideo.classList.remove("slide-in");
+          myVideo.classList.add("slide-out");
+
+          setTimeout(() => {
+            myVideo.classList.remove("slide-out");
+            myVideo.classList.add("slide-in");
+            setTimeout(() => {
+              myVideo.classList.remove("slide-in");
+            }, 600);
+            myVideo.play();
+          }, 500);
+        };
+        buttons.forEach((btn, index) => {
+          btn.addEventListener("click", () => {
+            currentIndex = index;
+            btn.scrollIntoView({ behavior: "smooth", block: "center" });
+            playVideoAtIndex(currentIndex);
+          });
+        });
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowDown") {
+            if (currentIndex < buttons.length - 1) {
+              currentIndex++;
+              buttons[currentIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              playVideoAtIndex(currentIndex);
+            }
+          } else if (e.key === "ArrowUp") {
+            if (currentIndex > 0) {
+              currentIndex--;
+              buttons[currentIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              playVideoAtIndex(currentIndex);
+            }
+          }
+        });
+        myVideo.addEventListener("click", () => {
+          if (document.fullscreenElement) return;
+
+          if (myVideo.requestFullscreen) {
+            myVideo.requestFullscreen();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

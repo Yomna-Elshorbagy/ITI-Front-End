@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px gray;
+        padding: 1px 0;
+        color: cadetblue;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background: #f3f3f3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Employee Table</h1>
+
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script>
+      function Employee(
+        firstName,
+        lastName,
+        jobTitle,
+        department,
+        age,
+        startDate
+      ) {
+        this.Name = `${firstName} ${lastName}`;
+        this.Position = jobTitle;
+        this.Office = department;
+        this.Age = age;
+        this.StartDate = startDate || "N/A";
+      }
+
+      let apiUrl =
+        "https://api.slingacademy.com/v1/sample-data/files/employees.json";
+      let employees = [];
+      let localStorageKey = "employeesData";
+
+      let localData = localStorage.getItem(localStorageKey);
+
+      function getTableData(data) {
+        let tbody = document.querySelector("#employeeTable tbody");
+        tbody.innerHTML = "";
+
+        data.forEach((employee) => {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+      <td>${employee.Name}</td>
+      <td>${employee.Position}</td>
+      <td>${employee.Office}</td>
+      <td>${employee.Age}</td>
+      <td>${employee.StartDate}</td>
+    `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      if (localData) {
+        employees = JSON.parse(localData);
+        getTableData(employees);
+      } else {
+        fetch(apiUrl)
+          .then((res) => res.json())
+          .then((data) => {
+            employees = data.map((emp) => {
+              return new Employee(
+                emp.first_name,
+                emp.last_name,
+                emp.job_title,
+                emp.department,
+                emp.age,
+                emp.start_date
+              );
+            });
+
+            localStorage.setItem(localStorageKey, JSON.stringify(employees));
+            getTableData(employees);
+          })
+          .catch((err) => console.error("Fetch error:", err));
+      }
+    </script>
+  </body>
+</html>

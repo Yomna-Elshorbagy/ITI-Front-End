@@ -1,0 +1,38 @@
+<bookstore>
+  <book>
+    <title>Introduction to programming</title>
+    <publisher>ITI</publisher>
+    <isbn>12345</isbn>
+    <price>100</price>
+  </book>
+  <book>
+    <title>Introduction to DB</title>
+    <publisher>MCIT</publisher>
+    <isbn>134545</isbn>
+    <price>200</price>
+  </book>
+    <book>
+    <title>Introduction to DB</title>
+    <publisher>MCIT</publisher>
+    <isbn>111111</isbn>
+    <price>300</price>
+  </book>
+    <book>
+    <title>Introduction to Js</title>
+    <publisher>ITI</publisher>
+    <isbn>222222</isbn>
+    <price>400</price>
+  </book>
+  <book>
+    <title>HTML Basics</title>
+    <publisher>W3Schools</publisher>
+    <isbn>333333</isbn>
+    <price>80</price>
+  </book>
+  <book>
+    <title>Web Development Basics</title>
+    <publisher>Udemy</publisher>
+    <isbn>555555</isbn>
+    <price>80</price>
+    </book>
+</bookstore>

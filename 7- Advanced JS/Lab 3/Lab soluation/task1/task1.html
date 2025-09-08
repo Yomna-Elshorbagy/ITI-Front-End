@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Person</h1>
+
+    <form id="personForm">
+      <input type="hidden" id="editIndex" value="" />
+      <input type="number" id="id" placeholder="ID" required />
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="text" id="city" placeholder="City" required />
+      <input type="number" id="salary" placeholder="Salary" required />
+      <input type="text" id="image" placeholder="Personal Image URL" required />
+      <button type="submit" id="addData">Save</button>
+      <button id="clearBtn">clear</button>
+      <button type="button" id="saveBtn" style="display: none">Update</button>
+      <button type="button" id="cancelBtn" style="display: none">Cancel</button>
+    </form>
+    <div class="sort-container">
+      <button onclick="sortBy('asc')" class="sort">Sort Ascending</button>
+      <button onclick="sortBy('desc')" class="sort">Sort Descending</button>
+    </div>
+
+    <table id="personTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Salary</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>

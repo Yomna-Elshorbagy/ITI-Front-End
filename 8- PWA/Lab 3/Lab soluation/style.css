@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  font-family: "Amatic SC", sans-serif;
+}
+.navbar-dark:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  transition: background-color 0.7s ease !important;
+}
+.navbar-dark .nav-item:hover {
+  background-color: gray !important;
+  border-radius: 10px !important;
+  transition: background-color 0.7s ease !important;
+}
+header {
+  background: url("https://www.w3schools.com/w3images/pizza.jpg") center/cover
+    no-repeat;
+}
+.font {
+  font-size: 5rem;
+}
+.nav.nav-pills .nav-link {
+  border-radius: 0;
+  font-family: "Amatic SC", "cursive";
+  font-size: 1.5rem;
+}
+.nav.nav-pills .nav-item .active {
+  background-color: #f44336 !important;
+  color: white;
+}
+
+#about {
+  background-color: #8b5f5b;
+}
+#about .image {
+  width: 10rem;
+}
+
+@media (max-width: 991.98px) {
+  .w-md-100 {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .w-lg-75 {
+    width: 75% !important;
+  }
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-dark text-center text-white py-2 small">
+      Sign up and get 20% off your first order. Sign Up Now
+    </div>
+    <!-- ========================= navbar section========================== -->
+    <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bolder" href="#">SHOP.CO</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                >Shop <img src="./images/Frame2.svg" alt=""
+              /></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">On Sale</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New Arrival</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Brands</a></li>
+          </ul>
+          <form class="d-flex w-50 d-none d-lg-flex" role="search">
+            <input
+              class="form-control rounded-pill me-2"
+              type="search"
+              placeholder="Search for products"
+            />
+            <button class="btn" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            <img src="./images/Frame.svg" alt="frame" class="pe-2" />
+            <img src="./images/Vector.svg" alt="vector" />
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================= header section========================== -->
+    <header class="hero d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 hero-content">
+            <h1 class="fw-bold display-5 py-2">
+              FIND CLOTHES THAT MATCHES YOUR STYLE
+            </h1>
+            <p class="my-4 py-2">
+              Browse through our diverse range of meticulously crafted garments,
+              designed to bring out your individuality and cater to your sense
+              of style.
+            </p>
+            <a href="#" class="btn btn-dark rounded-pill px-4 py-2 my-2"
+              >Shop Now</a
+            >
+            <div class="row mt-4 text-center text-lg-start">
+              <div class="col-4">
+                <strong class="fs-3">200+</strong>
+                <div class="text-muted small">International Brands</div>
+              </div>
+              <div class="col-4">
+                <strong class="fs-3">2,000+</strong>
+                <div class="text-muted small">High-Quality Products</div>
+              </div>
+              <div class="col-4">
+                <strong class="fs-3">30,000+</strong>
+                <div class="text-muted small">Happy Customers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="style-res"></div>
+    </header>
+
+    <!-- ========================= bar logos section========================== -->
+    <!-- <section class="bg-dark py-3">
+      <div class="container logo d-flex justify-content-between flex-wrap">
+        <img
+          src="./images/logo/Vector.svg"
+          alt="vector"
+          class="h-sm-50 w-sm-50"
+        />
+        <img
+          src="./images/logo/Vector (1).svg"
+          alt="vector 1"
+          class="h-sm-50"
+        />
+        <img
+          src="./images/logo/Vector (2).svg"
+          alt="vector 2"
+          class="h-sm-50"
+        />
+        <img
+          src="./images/logo/Vector (3).svg"
+          alt="vector 3"
+          class="h-sm-50"
+        />
+        <img
+          src="./images/logo/Vector (3).svg"
+          alt="vector 4"
+          class="h-sm-50"
+        />
+      </div>
+    </section> -->
+
+    <section class="bg-dark py-3">
+  <div class="container logo d-flex justify-content-between flex-wrap">
+    <img src="./images/logo/Vector.svg" alt="vector"
+         class="img-fluid w-15 w-md-10" />
+    <img src="./images/logo/Vector (1).svg" alt="vector 1"
+         class="img-fluid w-15 w-md-10" />
+    <img src="./images/logo/Vector (2).svg" alt="vector 2"
+         class="img-fluid w-15 w-md-10 " />
+    <img src="./images/logo/Vector (3).svg" alt="vector 3"
+         class="img-fluid w-15 w-md-10 " />
+    <img src="./images/logo/Vector (3).svg" alt="vector 4"
+         class="img-fluid w-15 w-md-10" />
+  </div>
+</section>
+    <!-- ====================== Two products items section ==================== -->
+
+    <section class="container py-5">
+      <h2 class="text-center fw-bold mb-3">New Arrival</h2>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/6.jpeg" alt="T-shirt with Tape Details" />
+            <p class="fw-medium mt-2">T-shirt with Tape Details</p>
+            <div class="text-warning small">
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star-half-alt"></i>
+              <span class="text-muted">4.5/5</span>
+            </div>
+            <p class="fw-bold text-danger pt-2">$120</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/7.jpeg" alt="Courage Graphic T-shirt" />
+            <p class="fw-medium mt-2">Courage Graphic T-shirt</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <p class="fw-bold text-dark pt-2">3.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/5.jpeg" alt="Loose Fit Bermuda Shorts" />
+            <p class="fw-medium mt-2">Loose Fit Bermuda Shorts</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <p class="fw-bold text-dark pt-2">4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/10.jpeg" alt="Faded Skinny Jeans" />
+            <p class="fw-medium mt-2">Faded Skinny Jeans</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <p class="fw-bold text-dark pt-2">4.5/5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" class="btn btn-outline-secondary rounded-pill">View All</a>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <h2 class="text-center fw-bold mb-3">Top selling</h2>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/8.jpeg" alt="Vertical Striped Shirt" />
+            <p class="fw-medium mt-2">Vertical Striped Shirt</p>
+            <div class="text-warning small">
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i> <span class="text-muted">5/5</span>
+            </div>
+            <p class="fw-bold text-danger pt-2">$120</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/2.jpeg" alt="Courage Graphic T-shirt" />
+            <p class="fw-medium mt-2">Courage Graphic T-shirt</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <p class="fw-bold text-dark pt-2">4/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/3.jpeg" alt="Loose Fit Bermuda Shorts" />
+            <p class="fw-medium mt-2">Loose Fit Bermuda Shorts</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <p class="fw-bold text-dark pt-2">3.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="product-card p-3 shadow-sm">
+            <img src="./images/9.jpeg" alt="Faded Skinny Jeans" />
+            <p class="fw-medium mt-2">Faded Skinny Jeans</p>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <p class="fw-bold text-dark pt-2">4.5/5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#" class="btn btn-outline-secondary rounded-pill">View All</a>
+      </div>
+    </section>
+    <!-- ========================= last section ============================ -->
+    <section class="container my-5 browse-style py-4 px-4">
+      <h2 class="text-center fw-bold mb-4">BROWSE BY DRESS STYLE</h2>
+      <div class="row g-3">
+        <div class="col-sm-12 col-md-4">
+          <img src="./images/browse/Frame 61.png" alt="Casual" />
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <img src="./images/browse/Frame 62.png" alt="Formal" />
+        </div>
+        <div class="col-sm-12 col-md-8">
+          <img src="./images/browse/Frame 64.png" alt="Party" />
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <img src="./images/browse/Frame 63.png" alt="Gym" />
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

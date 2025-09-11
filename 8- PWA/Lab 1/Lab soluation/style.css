@@ -1,0 +1,379 @@
+/* ************** start global style****************** */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+.container {
+  padding: 20px 60px;
+}
+/* ************** tob bar ****************** */
+.top {
+  text-align: center;
+  background-color: #111;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 14px;
+}
+/* ************** nav bar ****************** */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 5%;
+  background-color: #fff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-bar a {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bolder;
+}
+.items {
+  display: flex;
+  gap: 20px;
+}
+
+.items a {
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.search input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  width: 200px;
+}
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ************** start hero section ****************** */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: #fff;
+  background: url("./images/1.jpeg") no-repeat right center / contain, #fff;
+}
+
+.hero-content {
+  max-width: 45%;
+}
+
+.hero-content h1 {
+  font-family: "Integral CF";
+  font-weight: 700;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 64px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+.hero-content p {
+  font-family: "Satoshi";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0%;
+  padding: 30px 0;
+}
+.hero-content .btn {
+  width: 210;
+  height: 52;
+  top: 507px;
+  left: 100px;
+  gap: 12px;
+  border-radius: 62px;
+  padding: 16px 54px 16px 54px;
+  background-color: #111;
+  color: #fff;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats strong {
+  font-family: "Satoshi";
+  font-weight: bold;
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.stats span {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ************** bar ****************** */
+
+.bar {
+  margin-top: 0;
+}
+.bar .logo {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+}
+.bar .logo img {
+  width: 150px;
+  height: 36px;
+}
+
+/* ************** two section grid clothes ****************** */
+.product-section {
+  background-color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+.section-title h2 {
+  font-family: Integral CF;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card img {
+  max-width: 100%;
+  width: 295;
+  height: auto;
+  margin-bottom: 10px;
+  height: 298;
+  border-radius: 20px;
+}
+
+.product-card:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-name {
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.rating {
+  font-size: 14px;
+  color: #ff9900;
+}
+.rating span {
+  color: #4e4c4c;
+}
+.price {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.price.sale {
+  color: red;
+}
+
+.view-all {
+  display: block;
+  margin: 30px auto 0;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: transparent;
+  cursor: pointer;
+}
+
+.view-all:hover {
+  background-color: #f0f0f0;
+}
+
+/* *************** start browse by Dress Style ***********  */
+body {
+  background-color: #fff;
+}
+.browse-style {
+  background-color: #ccc;
+  border-radius: 40px;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  margin-bottom: 120px;
+}
+
+.browse-style .section-title {
+  font-family: "Integral CF", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.style-card {
+  width: 90%;
+  margin: 0 auto;
+}
+.style-card1 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.style-card2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+/* *************** start footer Style ***********  */
+footer {
+  background-color: #f0f0f0;
+}
+.footer-main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  padding: 2rem 5%;
+}
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.part1 .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.part1 .social-icons i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.part1 .social-icons i.fa-facebook-f {
+  background-color: #111;
+  color: #fff;
+}
+.part1 p {
+  padding: 1.25rem 0;
+}
+
+.footer-links a {
+  display: block;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-links h4 {
+  padding-bottom: 25px;
+}
+
+.footer-bottom {
+  border-top: 1px solid gray;
+  /* padding: 20px 0; */
+  display: grid;
+  grid-template-columns: 2fr auto;
+}
+.footer-bottom .logo-pay {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.footer-bottom .icons img {
+  height: 15px;
+}
+
+/* *************** start footer fly div ***********  */
+.updated {
+  background: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: -100px;
+}
+.updated h2{
+  font-size: 40px;
+}
+.updated-form {
+ display: flex;
+ flex-direction: column;
+}
+
+.updated-form input {
+  padding: 10px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.updated-form button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+}

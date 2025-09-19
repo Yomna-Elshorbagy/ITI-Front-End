@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Design login page UI",
+    "status": "in-progress",
+    "priority": "high",
+    "dueDate": "2025-09-25",
+    "assignedTo": "Alice"
+  },
+  {
+    "id": 2,
+    "title": "Write unit tests for cart service",
+    "status": "done",
+    "priority": "low",
+    "dueDate": "2025-10-01",
+    "assignedTo": "Diana"
+  },
+  {
+    "id": 3,
+    "title": "Optimize product search query",
+    "status": "to-do",
+    "priority": "medium",
+    "dueDate": "2025-09-28",
+    "assignedTo": "Charlie"
+  },
+  {
+    "id": 4,
+    "title": "Conduct code review for PR #42",
+    "status": "to-do",
+    "priority": "low",
+    "dueDate": "2025-09-24",
+    "assignedTo": "Ethan"
+  },
+  {
+    "id": 5,
+    "title": "Prepare weekly project update report",
+    "status": "to-do",
+    "priority": "medium",
+    "dueDate": "2025-09-23",
+    "assignedTo": "Bob"
+  }
+]

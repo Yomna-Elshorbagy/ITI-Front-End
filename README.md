@@ -17,10 +17,11 @@ and every line of code, there’s always something new to discover.
 - **05- SASS** → Styling with Sass/SCSS (variables, nesting, mixins, modules).
 - **06- HTML5** → Advanced HTML5 features (Canvas, Audio/Video, Forms, etc.).
 - **07- Advanced JS** → Advanced JavaScript topics (OOP, Async, Modules, Patterns).
-- **08- PWA** → Progressive Web Apps (Offline, Service Workers, Manifest).
-- **09- Nodejs** → Node.js fundamentals, backend development, APIs.
+- **08- PWA** → Progressive Web Apps.
+- **09- Nodejs** → Node.js fundamentals.
 - **10- Type script** → Strongly typed JavaScript for scalable applications.
-- **11- Nodejs MEARN** → Labs NodeJS for MEARN Stack.
+- **09- Nodejs** → Node.js fundamentals, backend development, APIs.
+- **11- Nodejs-MEARN** → Labs NodeJS for MEARN Stack.
 - **12- React** → Building UIs with React, hooks, and state management.
 - **13- js packaging & bundling** → Tools like Webpack, Gulp, Vite for optimizing and bundling projects.
 
@@ -79,11 +80,49 @@ and every line of code, there’s always something new to discover.
 
 ## 📚 Useful Links
 
-- Node.js: https://nodejs.org/
-- Sass: https://sass-lang.com/
-- Webpack: https://webpack.js.org/
-- Babel: https://babeljs.io/
-- Git & GitHub: https://docs.github.com/
+### 🌐 Core Web Technologies
+- **HTML5** → https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+- **CSS3** → https://developer.mozilla.org/en-US/docs/Web/CSS
+- **JavaScript (MDN)** → https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+### 🎨 Styling & UI
+- **Sass (Syntactically Awesome Stylesheets)** → https://sass-lang.com/
+- **Tailwind CSS** → https://tailwindcss.com/
+- **Bootstrap** → https://getbootstrap.com/
+
+### ⚙️ Build Tools & Bundlers
+- **Webpack** → https://webpack.js.org/
+- **Vite** → https://vitejs.dev/
+- **Parcel** → https://parceljs.org/
+- **Gulp.js** → https://gulpjs.com/
+
+### 🚀 JavaScript Transpilers & Polyfills
+- **Babel** → https://babeljs.io/
+- **Core-JS Polyfills** → https://github.com/zloirock/core-js
+
+### 📦 Package Managers
+- **npm** → https://www.npmjs.com/
+- **Yarn** → https://yarnpkg.com/
+- **pnpm** → https://pnpm.io/
+
+### ⚛️ Frontend Frameworks & Libraries
+- **React** → https://react.dev/
+- **Angular** → https://angular.io/
+- **Vue.js** → https://vuejs.org/
+
+### 📱 Progressive Web Apps (PWA)
+- **PWA Overview (MDN)** → https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+- **Workbox (Google)** → https://developer.chrome.com/docs/workbox/
+
+### 🧪 Testing
+- **Jest** → https://jestjs.io/
+- **Mocha** → https://mochajs.org/
+- **Cypress** → https://www.cypress.io/
+- **Playwright** → https://playwright.dev/
+
+### 🛠️ Version Control
+- **Git Docs** → https://git-scm.com/doc
+- **GitHub Docs** → https://docs.github.com/
 
 ---
 

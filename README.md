@@ -24,6 +24,15 @@ and every line of code, there’s always something new to discover.
 - **11- Nodejs-MEARN** → Labs NodeJS for MEARN Stack.
 - **12- React** → Building UIs with React, hooks, and state management.
 - **13- js packaging & bundling** → Tools like Webpack, Gulp, Vite for optimizing and bundling projects.
+- **14- source control / Lab1** → Git & GitHub fundamentals, version control labs.
+- **15- JS design patterns** → Common JavaScript design patterns and architecture concepts.
+- **16- React Native** → Mobile app development using React Native.
+- **17- NEXT JS** → Next.js fundamentals, routing, SSR, and modern React patterns.
+- **18- unit testing** → Unit testing concepts and tools (Jest, testing strategies).
+- **19- Dart** → Dart programming language basics.
+- **20- Flutter** → Cross-platform mobile app development using Flutter.
+- **21- PWA** → Advanced Progressive Web App concepts and enhancements.
+- **22- Gen AI** → Generative AI concepts, tools, and experiments.
 
 ---
 
@@ -53,6 +62,7 @@ and every line of code, there’s always something new to discover.
 ## 📌 Status
 
 🔄 **In Progress** – Labs and tasks will be added and updated regularly.
+✅ **5 july to 30 december** – Completely finished el7amdullah.
 
 ---
 
@@ -114,6 +124,13 @@ and every line of code, there’s always something new to discover.
 - **PWA Overview (MDN)** → https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
 - **Workbox (Google)** → https://developer.chrome.com/docs/workbox/
 
+### 📱 Mobile
+
+- **React Native** → https://reactnative.dev/
+- **Flutter** → https://flutter.dev/
+- **Dart** → https://dart.dev/
+
+🧪 Testing
 ### 🧪 Testing
 - **Jest** → https://jestjs.io/
 - **Mocha** → https://mochajs.org/
